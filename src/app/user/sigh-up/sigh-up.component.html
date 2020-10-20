@@ -1,0 +1,21 @@
+<mat-card>
+    <mat-card-content>
+      <form [formGroup]="myForm" (submit)="save()">
+        <h2>הרשמה</h2>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="שם הקבוצה" formControlName="name" required>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="סיסמא של הקבוצה" formControlName="password" required>
+        </mat-form-field>
+      
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="הסיסמא שלך" formControlName="managerPassowrd" required>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="number" placeholder="כמה דורות"formControlName="generation">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">הירשם</button>
+      </form>
+    </mat-card-content>
+  </mat-card>

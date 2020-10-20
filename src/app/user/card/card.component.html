@@ -1,0 +1,68 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <h2>הכרטיס שלך</h2>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="שם" formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="משפחה" formControlName="lastname">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="סיסמא" formControlName="password">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="email" placeholder="מייל" formControlName="mail">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>שם האבא</mat-label>
+        <mat-select formControlName="father">
+          <mat-option value="item" >Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>שם האמא</mat-label>
+        <mat-select formControlName="mother">
+          <mat-option value="item" >Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>סטטוס</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="item" >Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>מין</mat-label>
+        <mat-select formControlName="sex">
+          <mat-option value="item" >Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>שם בעל או האישה</mat-label>
+        <mat-select formControlName="wifeOrHusband">
+          <mat-option value="item" >Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="יום הולדת" type="date" formControlName="birthday">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="יום נישואין" type="date" formControlName="marrydate">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="עיר" formControlName="city">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="כתובת" formControlName="adress">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="number" placeholder="דור" formControlName="generation">
+      </mat-form-field>
+      <!-- <mat-form-field class="full-width-input">
+        <input matInput type="image" placeholder="picture" formControlName="picture">
+      </mat-form-field> -->
+      <button type="submit" mat-raised-button color="primary">שמירה</button>
+    </form>
+  </mat-card-content>
+</mat-card>
