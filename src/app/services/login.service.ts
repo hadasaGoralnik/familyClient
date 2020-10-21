@@ -1,13 +1,13 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../MODELS/user.model';
-import { HttpClient } from '@angular/common/http'
-import { Observable, Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { LoginRequest } from '../DTO/login-request';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class LoginService {
   currentUser:User
   userSubject = new Subject<{
     isLoggedIn: boolean;

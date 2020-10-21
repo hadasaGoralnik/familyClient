@@ -22,9 +22,9 @@ export class SighUpComponent implements OnInit {
     })
   }
   save(){
-    this.userService.sighin(this.myForm.value)
-    .subscribe(x=>{
-      console.log(x);
-    })
+    // this.userService.signin(this.myForm.value)
+    // .subscribe(x=>{
+    //   console.log(x);
+    // })
   }
 }
