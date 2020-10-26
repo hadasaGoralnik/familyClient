@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import{FormBuilder}from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
-import { Group } from 'src/app/MODELS/group';
 import { GroupService } from 'src/app/group/group.service';
+import { Group } from 'src/app/DTO/MODELS/group';
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
