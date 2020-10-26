@@ -6,10 +6,9 @@ import { SighUpComponent } from './user/sigh-up/sigh-up.component';
 
 
 const routes: Routes = [
-  {path:'home',component:LoginComponent},
+  {path:'login',component:LoginComponent},
   {path:'sign-up',component:SighUpComponent},
-  {path:'events',component:EventsComponent},
-{ path: '', pathMatch: 'full', redirectTo: '/home' },];
+  {path:'events',component:EventsComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

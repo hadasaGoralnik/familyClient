@@ -14,6 +14,7 @@ import { MatrialModule } from './matrial/matrial.module';
 import { CardComponent } from './user/card/card.component';
 import { SighUpComponent } from './user/sigh-up/sigh-up.component';
 import { EventsComponent } from './event/events/events.component';
+import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { EventsComponent } from './event/events/events.component';
     CardComponent,
     SighUpComponent,
     EventsComponent,
+    NavbarComponent,
   ],
   imports: [
     MatrialModule,
