@@ -8,24 +8,26 @@ import { HelpComponent } from './help/help.component';
 import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, Validator } from '@angular/forms';
-import { MyAccountComponent } from './user/my-account/my-account.component';
 import { CreateContactComponent } from './user/create-contact/create-contact.component';
 import { MatrialModule } from './matrial/matrial.module';
 import { CardComponent } from './user/card/card.component';
 import { SighUpComponent } from './user/sigh-up/sigh-up.component';
 import { EventsComponent } from './event/events/events.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { GroupListComponent } from './group/group-list/group-list.component';
+import { AddGroupComponent } from './group/add-group/add-group.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HelpComponent,
-    MyAccountComponent,
     CreateContactComponent,
     CardComponent,
     SighUpComponent,
     EventsComponent,
     NavbarComponent,
+    GroupListComponent,
+    AddGroupComponent,
   ],
   imports: [
     MatrialModule,

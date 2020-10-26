@@ -14,5 +14,6 @@ export class SignUpService {
       'https://localhost:44328/api/user/signup',
       request
     );
+  
   }
 }

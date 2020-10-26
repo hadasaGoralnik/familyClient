@@ -32,14 +32,19 @@ export class NavbarComponent implements OnInit {
       isLogin: true,
       unlimitedAccess: true
     },
-    // ,
-    // {
-    //   route: '/documents-list',
-    //   title: 'Documents List',
-    //   icon:'featured_play_list',
-    //   viewMenuTab: true
-    // },
-   
+    
+    {
+      route: '/group-list',
+      title: 'Group List',
+      icon:'groups',
+      viewMenuTab: false
+    },
+    {
+      route: '/add-group',
+      title: 'Add Group',
+      icon:'groups',
+      viewMenuTab: false
+    },
     // {
     //   route: '/document',
     //   title: ' Edit Document',

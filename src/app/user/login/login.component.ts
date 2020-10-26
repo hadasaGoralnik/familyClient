@@ -30,6 +30,7 @@ myForm: FormGroup;
           (user: User) => {
             this.loginService.setUseLogin(true, user);
            console.log("User:",this.loginService.getCurrentUser(),"IsLogedIn",this.loginService.isLogedIn)
+           this.router.navigate(['/group-list/']);
           },
           (err) => {
             console.log(err)

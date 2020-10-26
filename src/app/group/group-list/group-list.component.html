@@ -1,0 +1,12 @@
+<br>
+<br>
+<table id="groups">
+    <thead>
+        <th class="add-group" ><button type="button" (click)="addGroup()" class="add-btn"><mat-icon class="add-icon">add_circle_outline</mat-icon></button></th>
+        <th>My Groups</th>
+        </thead>
+    <tr *ngFor="let group of groups">
+        <td class="empty-td"></td>
+        <td >{{group.Name}}</td>
+        </tr>
+</table>

@@ -1,0 +1,49 @@
+
+
+.add-btn{
+    width: 50px;
+    height: 50px;
+    color: white;
+    text-align: center;
+    }
+.add-icon{
+ 
+        font-size:50px;
+
+        }
+button{
+            background:none;
+            border:none;
+            width: 100%;
+            padding: 0;
+            text-align: left;
+        }
+   
+#groups {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+          }
+          
+#groups td, #groups th {
+            border: 1px solid #ddd;
+            padding: 8px;
+          }
+          
+#groups tr:nth-child(even){background-color: #f2f2f2;}
+          
+#groups tr:hover {background-color: #ddd;}
+          
+#groups th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: blue;
+            color: white;
+          }
+.empty-td{
+    width: 20%;
+}
+.add-group{
+    width: 20%;
+}
