@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
 import{FormBuilder}from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
-import { User } from '../../MODELS/user.model';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/DTO/MODELS/user.model';
+
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-userSepcific:User;
+
 myForm: FormGroup;
   constructor(private loginService:LoginService,private fb:FormBuilder,private router:Router) { }
 
