@@ -1,0 +1,7 @@
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+        Users<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li *ngFor="let user of users">{{user.FirstName}} {{user.LastName}}</li>
+    </ul>
+</div>

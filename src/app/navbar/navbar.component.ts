@@ -45,32 +45,25 @@ export class NavbarComponent implements OnInit {
       icon:'groups',
       viewMenuTab: false
     },
-    // {
-    //   route: '/document',
-    //   title: ' Edit Document',
-    //   icon: 'edit',
-    //   viewMenuTab: false
-    // },
-    // {
-    //   route: '/share-document',
-    //   title: 'Share Document',
-    //   icon: 'share',
-    //   viewMenuTab: false
-    // },
-    // {
-    //   route: '/unsubscribe-user',
-    //   title: 'Unsubscribe',
-    //   icon: 'unsubscribe',
-    //   viewMenuTab: true
-    // },
     {
       route: '',
       title: 'Logout',
       icon: 'logout',
       isLogout: true,
       unlimitedAccess: true,
-    }
- 
+    },
+    {
+      route: '/display-group',
+      title: 'Display Group',
+      icon: 'group',
+      viewMenuTab: false
+    },
+    {
+      route: '/user-group',
+      title: 'User In Group',
+      icon: 'group',
+      viewMenuTab: false
+    },
   ];
   currentUser: User;
   userLoggedIn: boolean;

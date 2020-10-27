@@ -38,5 +38,9 @@ export class GroupListComponent implements OnInit {
       console.log(this.groups)
     })
   }
+  routeToDisplatGroup(group:Group){
+    this.groupService.currentGroup=group
+    this.router.navigate(['/display-group'] );
+  }
 }
 

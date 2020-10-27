@@ -5,6 +5,7 @@ import { LoginComponent } from './user/login/login.component';
 import { SighUpComponent } from './user/sigh-up/sigh-up.component';
 import { GroupListComponent } from './group/group-list/group-list.component';
 import { AddGroupComponent } from './group/add-group/add-group.component';
+import { DisplayGroupComponent } from './display-group/display-group.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'sign-up',component:SighUpComponent},
   {path:'group-list',component:GroupListComponent},
   {path:'add-group',component:AddGroupComponent},
+  {path:'display-group',component:DisplayGroupComponent},
   {path:'events',component:EventsComponent}];
 
 @NgModule({
