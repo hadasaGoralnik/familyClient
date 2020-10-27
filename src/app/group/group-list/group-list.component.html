@@ -6,7 +6,7 @@
         <th>My Groups</th>
         </thead>
     <tr *ngFor="let group of groups">
-        <td class="empty-td"></td>
+        <td class="delete-td"><button type="button" (click)="deleteGroup(group.Id)"><mat-icon class="delete-icon" >delete</mat-icon></button></td>
         <td >{{group.Name}}</td>
         </tr>
 </table>

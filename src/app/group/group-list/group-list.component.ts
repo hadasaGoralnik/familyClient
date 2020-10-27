@@ -31,5 +31,12 @@ export class GroupListComponent implements OnInit {
   addGroup(){
       this.router.navigate(['/add-group'] );
   }
-
+  deleteGroup(groupId:number){
+    this.groupService.DeleteGroup({GroupId:groupId}).subscribe(group=>{
+      var index=this.groups.findIndex(group=>group.Id==groupId)
+      this.groups.splice(index,1)
+      console.log(this.groups)
+    })
+  }
 }
+

@@ -41,9 +41,12 @@ button{
             background-color: blue;
             color: white;
           }
-.empty-td{
+.delete-td{
     width: 20%;
 }
 .add-group{
     width: 20%;
+}
+.delete-icon{
+    color:blue;
 }
