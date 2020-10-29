@@ -1,7 +1,8 @@
 <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
-        Users<span class="caret"></span></button>
+    <button class="users" type="button" data-toggle="dropdown">
+        <span class="caret"></span><mat-icon>groups</mat-icon></button>
     <ul class="dropdown-menu">
-        <li *ngFor="let user of users">{{user.FirstName}} {{user.LastName}}</li>
-    </ul>
+        <li *ngFor="let user of users"><span class="userName">{{user.FirstName}} {{user.LastName}}</span><button (click)="DeleteUserFromGroup(user.Id)"><mat-icon>clear</mat-icon></button></li>
+        <li><button>Add User</button></li>
+     </ul>
 </div>

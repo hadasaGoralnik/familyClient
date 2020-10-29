@@ -50,6 +50,12 @@ export class SighUpComponent implements OnInit {
     this.signupService.SignUp(this.myForm.value)
     .subscribe(x=>{
       console.log(x);
+    },
+    (err) => {
+
+      alert('The sigh-up failed, Username already exists');
     })
+
   }
+  
 }

@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { DeleteGroupRequest } from '../DTO/Requests/delete-group-request';
 import { AddGroupRequest } from '../DTO/Requests/add-group-request';
 import { Group } from '../DTO/MODELS/group';
+import { DeleteUserFromGroupRequest } from '../DTO/Requests/delete-user-from-group-request';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,14 @@ export class GroupService {
       'https://localhost:44328/api/group/addgroup',
       request
     );
-  
   }
+  DeleteUserFromGroup(request:DeleteUserFromGroupRequest):Observable<any>
+  {
+    console.log(request)
+    return this.http.post(
+      'https://localhost:44328/api/group/deleteuserfromgroup',
+      request
+    );
+  }
+  
 }
