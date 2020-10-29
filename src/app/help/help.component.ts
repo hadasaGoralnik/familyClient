@@ -17,24 +17,14 @@ export class HelpComponent implements OnInit {
     private returnUrl: string;
     constructor(
   
-      // private fb: FormBuilder,
   
-      // private route: ActivatedRoute,
-  
-      // private router: Router,
-
    
     ) {
 
     }
     ngOnInit() {
        
-      // this.form = this.fb.group({
-        
-      //         username: ['', Validators.email],
-        
-      //         password: ['', Validators.required]
-      //   });
+   
     }
       }
 

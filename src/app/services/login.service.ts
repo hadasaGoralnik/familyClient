@@ -21,7 +21,7 @@ export class LoginService {
   login(request:LoginRequest):Observable<any>{
     return this.http.post(
       'https://localhost:44328/api/user/login',
-      request
+      request 
     );
   }
 
