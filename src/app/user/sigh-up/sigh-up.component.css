@@ -13,3 +13,10 @@ mat-card {
     height: 0;
     width: 0;
 }
+img{
+  width: 100px;
+  text-align: left !important;
+  direction: ltr;
+  margin-left: -90%;
+
+}

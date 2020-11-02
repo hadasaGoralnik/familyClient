@@ -86,6 +86,7 @@ export class NavbarComponent implements OnInit {
 
   subsribeToUrlNavigation() {
     this.router.events.subscribe((data: any) => {
+    
       if (!data.url || data.url === '' || data.url === '/') return;
 
       const currentPage = this.pages.find((page) =>

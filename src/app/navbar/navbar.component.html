@@ -13,10 +13,13 @@
           <div
             *ngIf="userLoggedIn"
             class="d-flex justify-content-between align-items-center">
-            <span class="circle-name">
+            <br>
+            <span class="circle-name" *ngIf="!currentUser.Image">
                 {{FirstLetter(currentUser.UserName)}}
                </span>
-            <span class="bold small-font">
+               <img [src]="currentUser.Image" class="circle-image" *ngIf="currentUser.Image">
+               <br>
+            <span id="user-name" class="bold small-font">
               Hi
               {{currentUser.UserName}}!
             </span>
