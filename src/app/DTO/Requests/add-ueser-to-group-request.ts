@@ -6,4 +6,5 @@ export class AddUeserToGroupRequest {
     LastName:string;
     IsMale:boolean;
     Password:string;
+    UserSender:string;
 }
