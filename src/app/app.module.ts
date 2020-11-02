@@ -18,6 +18,7 @@ import { GroupListComponent } from './group/group-list/group-list.component';
 import { AddGroupComponent } from './group/add-group/add-group.component';
 import { DisplayGroupComponent } from './display-group/display-group.component';
 import { UserListOfGroupComponent } from './user-list-of-group/user-list-of-group.component';
+import { EventDetailsComponent } from './event/event-details/event-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { UserListOfGroupComponent } from './user-list-of-group/user-list-of-grou
     AddGroupComponent,
     DisplayGroupComponent,
     UserListOfGroupComponent,
+    EventDetailsComponent,
   ],
   imports: [
     MatrialModule,
