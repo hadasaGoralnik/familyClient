@@ -6,6 +6,8 @@ import { SighUpComponent } from './user/sigh-up/sigh-up.component';
 import { GroupListComponent } from './group/group-list/group-list.component';
 import { AddGroupComponent } from './group/add-group/add-group.component';
 import { DisplayGroupComponent } from './display-group/display-group.component';
+import { AddUeserToGroupRequest } from './DTO/Requests/add-ueser-to-group-request';
+import { AddUserToGroupComponent } from './group/add-user-to-group/add-user-to-group.component';
 
 
 const routes: Routes = [
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path:'group-list',component:GroupListComponent},
   {path:'add-group',component:AddGroupComponent},
   {path:'display-group',component:DisplayGroupComponent},
+  {path:'add-user',component:AddUserToGroupComponent},
+
   {path:'events',component:EventsComponent}];
 
 @NgModule({

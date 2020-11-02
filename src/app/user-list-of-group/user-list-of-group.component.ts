@@ -26,7 +26,8 @@ export class UserListOfGroupComponent implements OnInit {
       this.users.splice(index,1)
       console.log(this.users)
     },err=>  this.router.navigate(['/group-list/']))
-  
   }
-
+  RouteToAddUser(){
+    this.router.navigate(['/add-user/'])
+  }
 }

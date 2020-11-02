@@ -3,6 +3,6 @@
         <span class="caret"></span><mat-icon>groups</mat-icon></button>
     <ul class="dropdown-menu">
         <li *ngFor="let user of users"><span class="userName">{{user.FirstName}} {{user.LastName}}</span><button (click)="DeleteUserFromGroup(user.Id)"><mat-icon>clear</mat-icon></button></li>
-        <li><button>Add User</button></li>
+        <li><button (click)="RouteToAddUser()">Add User</button></li>
      </ul>
 </div>

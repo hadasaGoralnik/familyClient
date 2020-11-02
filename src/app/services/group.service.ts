@@ -6,6 +6,9 @@ import { DeleteGroupRequest } from '../DTO/Requests/delete-group-request';
 import { AddGroupRequest } from '../DTO/Requests/add-group-request';
 import { Group } from '../DTO/MODELS/group';
 import { DeleteUserFromGroupRequest } from '../DTO/Requests/delete-user-from-group-request';
+import { AddUeserToGroupRequest } from '../DTO/Requests/add-ueser-to-group-request';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +39,12 @@ export class GroupService {
       'https://localhost:44328/api/group/deleteuserfromgroup',
       request
     );
-  }
-  
+  } 
+  AddUserToGroup(request:AddUeserToGroupRequest):Observable<any>{
+    console.log("in service")
+    return this.http.post(
+      'https://localhost:44328/api/group/addUserToGroup',
+      request
+    );
+}
 }
