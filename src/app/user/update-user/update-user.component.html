@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-content>
-      <form [formGroup]="myForm" (submit)="AddUserToGroup()">
-        <h2>Add user to group: {{currentGroup.Name}}</h2>
+      <form [formGroup]="myForm" (submit)="save()">
+        <h2>Update user</h2>
         <mat-form-field class="full-width-input">
           <input matInput placeholder="UserName" formControlName="UserName" >
         </mat-form-field>
@@ -24,8 +24,20 @@
           >&nbsp;
           <mat-radio-button color="primary" value="female">Female</mat-radio-button>
         </mat-radio-group>
-       <br>
-        <button mat-raised-button color="primary" type="submit">Subscribe</button>
+        <mat-form-field class="full-width-input">
+          <input matInput type="date"  placeholder="Birthday"formControlName="Birthday">
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="date"  placeholder="MarryDate"formControlName="MarryDate">
+        </mat-form-field>
+        <img [src]="url">
+        <mat-form-field class="full-width-input">
+          <input type="file"
+                id="file"
+                (change)="onSelectFile($event)"  >
+                <input matInput class="invisible" name="fileHidden" formControlName="Image"/>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Update</button>
       </form>
     </mat-card-content>
   </mat-card>

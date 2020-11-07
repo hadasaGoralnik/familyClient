@@ -3,8 +3,8 @@ import { User } from '../DTO/MODELS/user.model';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
-import { LoginService } from '../services/login.service';
 import { map, shareReplay } from 'rxjs/operators';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(  private breakpointObserver: BreakpointObserver,
     private router: Router,
-    private loginService: LoginService,) { }
+    private userService: UserService,) { }
     currentPage: any;
   pages = [
     {
@@ -75,7 +75,7 @@ export class NavbarComponent implements OnInit {
       shareReplay()
     );
   ngOnInit(): void {
-    this.loginService.userSubject
+    this.userService.userSubject
     .subscribe(login=>{
      this.currentUser=login.user
      this.userLoggedIn=login.isLoggedIn
@@ -114,6 +114,13 @@ export class NavbarComponent implements OnInit {
     return name.substring(0,2)
   }
   logout() {  
-    this.loginService.setUseLogin(false,this.currentUser);
+    this.userService.setUseLogin(false,this.currentUser);
+}
+Unsubscribe(){
+  console.log("DeleteUserFromGroup")
+ this.userService.Unsubscribe({UserId:this.userService.currentUser.Id}).subscribe(user=>{
+this.logout()
+this.router.navigate(['']);
+ })
 }
 }

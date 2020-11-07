@@ -14,15 +14,22 @@
             *ngIf="userLoggedIn"
             class="d-flex justify-content-between align-items-center">
             <br>
-            <span class="circle-name" *ngIf="!currentUser.Image">
+            <span class="circle-name" *ngIf="!currentUser.Image"data-toggle="dropdown">
                 {{FirstLetter(currentUser.UserName)}}
                </span>
-               <img [src]="currentUser.Image" class="circle-image" *ngIf="currentUser.Image">
+               <img [src]="currentUser.Image" class="circle-image" *ngIf="currentUser.Image"data-toggle="dropdown">
+              
                <br>
             <span id="user-name" class="bold small-font">
               Hi
               {{currentUser.UserName}}!
             </span>
+            <div class="dropdown-menu"   aria-labelledby="dropdownMenuButton">
+              <app-display-user></app-display-user>
+
+            </div>
+            <a routerLink="/update-user"><button class="btn btn-outline-secondary" ><mat-icon>edit</mat-icon> Edit</button></a>
+            <a><button class="btn btn-outline-secondary" (click)="Unsubscribe()" ><mat-icon>person_remove</mat-icon> Unsubscribe</button></a>
           </div>
         </div>
   

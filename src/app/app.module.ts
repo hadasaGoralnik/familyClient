@@ -8,24 +8,24 @@ import { HelpComponent } from './help/help.component';
 import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, Validator } from '@angular/forms';
-import { CreateContactComponent } from './user/create-contact/create-contact.component';
 import { MatrialModule } from './matrial/matrial.module';
-import { CardComponent } from './user/card/card.component';
 import { SighUpComponent } from './user/sigh-up/sigh-up.component';
 import { EventsComponent } from './event/events/events.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GroupListComponent } from './group/group-list/group-list.component';
 import { AddGroupComponent } from './group/add-group/add-group.component';
 import { DisplayGroupComponent } from './display-group/display-group.component';
-import { UserListOfGroupComponent } from './user-list-of-group/user-list-of-group.component';
+import { UserListOfGroupComponent } from './group/user-list-of-group/user-list-of-group.component';
 import { AddUserToGroupComponent } from './group/add-user-to-group/add-user-to-group.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { DisplayUserComponent } from './user/display-user/display-user.component';
+import { HomeComponent } from './home/home.component';
+// import { ChatComponent } from './chat/chat.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HelpComponent,
-    CreateContactComponent,
-    CardComponent,
     SighUpComponent,
     EventsComponent,
     NavbarComponent,
@@ -34,6 +34,10 @@ import { AddUserToGroupComponent } from './group/add-user-to-group/add-user-to-g
     DisplayGroupComponent,
     UserListOfGroupComponent,
     AddUserToGroupComponent,
+    UpdateUserComponent,
+    DisplayUserComponent,
+    HomeComponent,
+       // ChatComponent,
   ],
   imports: [
     MatrialModule,

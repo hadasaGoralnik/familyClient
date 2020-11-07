@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GroupService } from 'src/app/services/group.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/services/login.service';
 import { Group } from 'src/app/DTO/MODELS/group';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-add-user-to-group',
@@ -14,7 +14,7 @@ export class AddUserToGroupComponent implements OnInit {
 
   myForm: FormGroup;
   currentGroup:Group;
-  constructor(private fb:FormBuilder,private groupService:GroupService,private router:Router,private loginService:LoginService) { }
+  constructor(private fb:FormBuilder,private groupService:GroupService,private router:Router,private userService:UserService) { }
 
   ngOnInit(): void {
 this.currentGroup=this.groupService.currentGroup
@@ -33,7 +33,7 @@ this.currentGroup=this.groupService.currentGroup
   { 
     console.log("in add component")
     this.GroupId.setValue(this.currentGroup.Id)
-    this.UserSender.setValue(this.loginService.currentUser.UserName)
+    this.UserSender.setValue(this.userService.currentUser.UserName)
     this.groupService.AddUserToGroup(this.myForm.value)
     .subscribe(x=>{
       console.log(x);

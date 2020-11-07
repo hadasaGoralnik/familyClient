@@ -1,5 +1,14 @@
-.circle-name {
-    margin-left: 15%;
+img{
+ 
+ 
+    width:4em;
+    height:4em;
+    border-radius:50%;
+
+
+  }
+  .circle-name {
+
     display:inline-block;
     font-size:2em;
     width:2.5em;
@@ -13,27 +22,11 @@
     color:white;
     /* display: inline-block;*/
   }
-  img{
- 
- 
-    width:4em;
-    height:4em;
-    border-radius:50%;
-    margin-left: 15%;
-
+  .mat-card-content{
+    max-width: 500px;
+    min-height: 200px;
+    text-align: center;
   }
-
-  .hide {
-    display: none;
-
-  }
-  
-  #user-name
-  { 
-    margin-left: 15%;
-
-  }
-  .dropdown-menu{
-    z-index: -1;
-    position:relative;
+  .btn-outline-secondary{
+      margin: 5px;
   }

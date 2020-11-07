@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import{FormBuilder}from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
-import { SignUpService } from 'src/app/services/sign-up.service';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-sigh-up',
@@ -12,7 +12,7 @@ import { SignUpService } from 'src/app/services/sign-up.service';
 export class SighUpComponent implements OnInit {
   url: string;
   myForm: FormGroup;
-  constructor(private fb:FormBuilder,private signupService:SignUpService) { }
+  constructor(private fb:FormBuilder,private userService:UserService,private router:Router) { }
 
   ngOnInit(): void {
     this.myForm=this.fb.group({
@@ -47,9 +47,10 @@ export class SighUpComponent implements OnInit {
     }
   }
   save(){
-    this.signupService.SignUp(this.myForm.value)
+    this.userService.SignUp(this.myForm.value)
     .subscribe(x=>{
       console.log(x);
+      this.router.navigate(['/login/']);
     },
     (err) => {
 
