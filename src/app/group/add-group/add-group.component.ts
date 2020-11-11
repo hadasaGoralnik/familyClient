@@ -20,6 +20,7 @@ export class AddGroupComponent implements OnInit {
     this.currentUser=this.userService.currentUser
     this.addGroupForm=this.fb.group({
       Name: ["",[Validators.required]],
+      UserId:[this.currentUser.Id,[Validators.required]],
     })
   }
 AddGroup()

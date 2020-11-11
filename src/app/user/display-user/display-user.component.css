@@ -16,7 +16,7 @@ img{
     line-height:2.5em;
     text-align:center;
     border-radius:50%;
-    background:gray;
+    background:#3DC3C0;
     vertical-align:middle;
     margin-right:auto;
     color:white;
@@ -30,3 +30,4 @@ img{
   .btn-outline-secondary{
       margin: 5px;
   }
+  

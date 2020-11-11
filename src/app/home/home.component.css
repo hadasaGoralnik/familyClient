@@ -1,0 +1,15 @@
+h1{
+    font-size: 50px;
+    font-family: "Bodoni MT Black";
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 40%;
+}
+h2{
+    font-size: 15px;
+    font-family: "inherit";
+    position: absolute;
+    margin-top: 48px;
+    margin-left: 48%;
+    color: #3DC3C0;
+}

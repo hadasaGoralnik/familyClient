@@ -33,10 +33,12 @@ export class GroupListComponent implements OnInit {
       this.router.navigate(['/add-group'] );
   }
   deleteGroup(groupId:number){
+    alert("Are you sure you want to delete the entire group?");
     this.groupService.DeleteGroup({GroupId:groupId}).subscribe(group=>{
       var index=this.groups.findIndex(group=>group.Id==groupId)
       this.groups.splice(index,1)
       console.log(this.groups)
+      
     })
   }
   routeToDisplatGroup(group:Group){

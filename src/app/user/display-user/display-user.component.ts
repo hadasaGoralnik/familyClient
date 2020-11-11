@@ -26,5 +26,7 @@ currentUser:User
   this.userService.setUseLogin(false,null);
   this.router.navigate(['']);
    })
+   
  }
+
 }

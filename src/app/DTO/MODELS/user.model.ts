@@ -12,7 +12,6 @@ export class User {
     FirstName: string;
     LastName: string;
     Address: string;
-    IsEnable: boolean;
     IsMale: boolean;
     Image: string;
     Password: string;

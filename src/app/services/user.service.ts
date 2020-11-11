@@ -54,5 +54,8 @@ export class UserService {
         'https://localhost:44328/api/user/Unsubscribe',
         request
       );}
-   
+      GetUserById(userId:number):Observable<any>{
+        return this.http.get(`https://localhost:44328/api/user/GetUserById/${userId}`)
+    }
+  
 }

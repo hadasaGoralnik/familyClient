@@ -64,6 +64,12 @@ export class NavbarComponent implements OnInit {
       icon: 'group',
       viewMenuTab: false
     },
+    {
+      route: '/chat',
+      title: 'Chat',
+      icon: 'group',
+      viewMenuTab: false
+    },
   ];
   currentUser: User;
   userLoggedIn: boolean;
