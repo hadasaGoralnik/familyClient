@@ -7,6 +7,7 @@ import { AddGroupRequest } from '../DTO/Requests/add-group-request';
 import { Group } from '../DTO/MODELS/group';
 import { DeleteUserFromGroupRequest } from '../DTO/Requests/delete-user-from-group-request';
 import { AddUeserToGroupRequest } from '../DTO/Requests/add-ueser-to-group-request';
+import { Events } from '../DTO/MODELS/events';
 
 
 
@@ -47,4 +48,5 @@ export class GroupService {
       request
     );
 }
+
 }

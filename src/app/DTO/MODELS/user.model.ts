@@ -12,8 +12,6 @@ export class User {
     FirstName: string;
     LastName: string;
     Address: string;
-    IsEnable: boolean;
-    IsMale: boolean;
     Image: string;
     Password: string;
     ChatMessages: ChatMessage[];
@@ -22,4 +20,5 @@ export class User {
     Menu: Menu[];
     Message: Messages[];
     Groups1: Group[];
+    IsMale:boolean;
 }

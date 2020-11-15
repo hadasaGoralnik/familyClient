@@ -1,11 +1,14 @@
 import { ChatMessage } from './chat-message';
+import { EventsKind } from './events-kind';
+import { Group } from './group';
 import { Menu } from './menu';
 import { Messages } from './messages';
 import { Picture } from './picture';
+import { User } from './user.model';
 
 export class Events {
     Id: number;
-    Adress: string;
+    Address: string;
     City: string;
     Date: Date;
     Description: string;
@@ -15,9 +18,8 @@ export class Events {
     GroupId: number;
     Repeat: number;
     EventKindId: number;
-    ChatMessages: ChatMessage[];
-    Menu: Menu[];
-    Message: Messages[];
-    Picture: Picture[];
-
+    Title:string;
+    EventsKind:EventsKind;
+    Groups:Group; 
+    User:User;
 }

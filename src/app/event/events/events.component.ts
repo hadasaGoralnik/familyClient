@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EventsService } from '../events.service';
+import { Events } from 'src/app/DTO/MODELS/events';
+import { EventsService } from '../../services/events.service';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -7,7 +8,7 @@ import { EventsService } from '../events.service';
 })
 export class EventsComponent implements OnInit {
   groupId = 1;
-  events: Event[] = [];
+  events: Events[] = [];
   constructor(private eventService: EventsService) { }
 
   ngOnInit(): void {
