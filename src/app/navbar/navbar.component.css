@@ -1,6 +1,7 @@
 .circle-name {
+    margin-left: 15%;
     display:inline-block;
-    font-size:1em;
+    font-size:2em;
     width:2.5em;
     height:2.5em;
     line-height:2.5em;
@@ -12,13 +13,27 @@
     color:white;
     /* display: inline-block;*/
   }
+  img{
+ 
+ 
+    width:4em;
+    height:4em;
+    border-radius:50%;
+    margin-left: 15%;
+
+  }
 
   .hide {
     display: none;
 
   }
   
-  .circle-name:hover + .hide {
-    display: inline-block;
+  #user-name
+  { 
+    margin-left: 15%;
 
+  }
+  .dropdown-menu{
+    z-index: -1;
+    position:relative;
   }

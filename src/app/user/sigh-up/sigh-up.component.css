@@ -1,7 +1,9 @@
 mat-card {
 
-    margin: 3em auto;
-    text-align: center;
+  max-width: 500px;
+  margin: 3em auto;
+  text-align: center;
+  
 
   }
   mat-form-field {
@@ -12,4 +14,11 @@ mat-card {
     visibility: hidden;
     height: 0;
     width: 0;
+}
+img{
+  width: 100px;
+  text-align: left !important;
+  direction: ltr;
+  margin-left: -90%;
+
 }

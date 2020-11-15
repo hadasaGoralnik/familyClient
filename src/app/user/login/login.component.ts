@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import{FormBuilder}from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
-import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/DTO/MODELS/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { User } from 'src/app/DTO/MODELS/user.model';
 export class LoginComponent implements OnInit {
 
 myForm: FormGroup;
-  constructor(private loginService:LoginService,private fb:FormBuilder,private router:Router) { }
+  constructor(private userService:UserService,private fb:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
   this.myForm=this.fb.group({
@@ -25,11 +25,11 @@ myForm: FormGroup;
   }
   onSubmit(){
       if (!this.myForm.valid) return;
-      this.loginService.login(this.myForm.value)
+      this.userService.login(this.myForm.value)
         .subscribe(
           (user: User) => {
-            this.loginService.setUseLogin(true, user);
-           console.log("User:",this.loginService.getCurrentUser(),"IsLogedIn",this.loginService.isLogedIn)
+            this.userService.setUseLogin(true, user);
+           console.log("User:",this.userService.getCurrentUser(),"IsLogedIn",this.userService.isLogedIn)
            this.router.navigate(['/group-list/']);
           },
           (err) => {

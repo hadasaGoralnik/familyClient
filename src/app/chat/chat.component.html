@@ -1,0 +1,46 @@
+
+  <form [formGroup]="addChatMessageForm" (submit)="AddMessage()">
+ <div class="col-sm-3 col-sm-offset-4 frame">
+  <ul>
+    <li style="width:100%" *ngFor="let msg of messages">
+      <div class="msj macro" *ngIf="msg.UserID!=currentUser?.Id"> 
+
+      <div *ngIf="users[msg.UserID].Image" class="avatar"><img class="img" style="width:100%;" [src]="users[msg.UserID].Image" /></div>
+      <div *ngIf="!users[msg.UserID].Image" class="avatar" style="padding:0px 0px 0px 10px !important"> <span class="circle-name" >
+        {{FirstLetter(users[msg.UserID].UserName)}}
+       </span></div>     
+          <div class="text text-l">
+              <p>{{msg.Body}}</p> 
+              <p><small>{{ msg.Date.toDateString()}} {{ msg.Date.toTimeString().split(" ")[0]}}</small></p>
+          </div>
+      </div>
+      <div class="msj-rta macro" *ngIf="msg.UserID==currentUser.Id">
+
+        <div class="text text-r">
+           <p>{{msg.Body}}</p>
+            <p><small>{{ msg.Date?.toDateString()}} {{ msg.Date?.toTimeString().split(" ")[0]}}</small></p>
+        </div>
+    <div *ngIf="currentUser.Image" class="avatar" style="padding:0px 0px 0px 10px !important"><img class="img"  style="width:100%;" [src]="currentUser.Image" /></div> 
+    <div *ngIf="!currentUser.Image" class="avatar" style="padding:0px 0px 0px 10px !important"> <span class="circle-name" >
+        {{FirstLetter(currentUser.UserName)}}
+       </span></div>     
+    </div>  
+  </li>  
+ 
+                           
+
+  </ul>
+
+  <div>
+      <div class="msj-rta macro">                        
+          <div class="text text-r" style="background:whitesmoke !important">
+              <input class="mytext" formControlName="Body" placeholder="Type a message"/>
+          </div> 
+
+      </div>
+      <div style="padding:10px;">
+          <button class="btn-send" type="submit"><span  class="glyphicon glyphicon-share-alt"></span></button>
+      </div>                
+  </div>
+</div>     
+</form>  

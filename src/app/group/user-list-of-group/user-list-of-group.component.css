@@ -1,0 +1,50 @@
+.dropdown{
+    left: 20%;
+}
+.users{
+     
+    width:3.7em;
+    height:3.7em; 
+    border-radius:50%;
+}
+button{
+    background:none;
+    border:none;
+    padding: 0;
+    text-align: right;
+}
+.userName{
+    width: 90%;
+    margin-right: 66px;
+}
+img{
+ 
+    width: 2em;
+    height: 2em;
+    border-radius:50%;
+    margin-right: 5px;
+
+  }
+  .circle-name {
+ 
+    display: inline-block;
+    font-size: 1em;
+    width: 2em;
+    height: 2em;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    background: gray;
+    vertical-align: middle;
+    margin-right: 5px;
+    color: white;
+    /* display: inline-block;*/
+  }
+  .clear{
+      text-align: right;
+      position: absolute;
+      left: 87%;
+  }
+  .clear-icon{
+    font-size: 17px;
+  }

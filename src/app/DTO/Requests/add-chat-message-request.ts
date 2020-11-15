@@ -1,7 +1,5 @@
-export class ChatMessage {
-    Id: number
+export class AddChatMessageRequest {
     Body: string;
     UserID: number;
-    Date: Date;
     GroupId:number;
 }

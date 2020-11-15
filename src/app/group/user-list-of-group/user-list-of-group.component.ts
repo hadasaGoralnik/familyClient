@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../DTO/MODELS/user.model';
-import { GroupService } from '../services/group.service';
+import { User } from 'src/app/DTO/MODELS/user.model';
+import { GroupService } from 'src/app/services/group.service';
+
 
 @Component({
   selector: 'app-user-list-of-group',
@@ -13,11 +14,14 @@ export class UserListOfGroupComponent implements OnInit {
   constructor(private groupService:GroupService,private router:Router) { }
 
   ngOnInit(): void {
-   this.groupService.GetUsers(this.groupService.currentGroup.Id).subscribe(users=>{
-    this.users=users
-    console.log(users)
-    console.log(this.users)
-   })
+    if(this.groupService.currentGroup){
+      this.groupService.GetUsers(this.groupService.currentGroup.Id).subscribe(users=>{
+        this.users=users
+        console.log(users)
+        console.log(this.users)
+       })
+    }
+
   }
    DeleteUserFromGroup(UserId:number){
      console.log("DeleteUserFromGroup")
@@ -32,5 +36,9 @@ export class UserListOfGroupComponent implements OnInit {
   
   RouteToAddUser(){
     this.router.navigate(['/add-user/'])
+  }
+  FirstLetter(userId:string):string{
+    var name=userId.toUpperCase()
+    return name.substring(0,2)
   }
 }

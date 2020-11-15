@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-content>
       <form [formGroup]="myForm" (submit)="save()">
-        <h2>Sign Up</h2>
+        <h2>Update user</h2>
         <mat-form-field class="full-width-input">
           <input matInput placeholder="UserName" formControlName="UserName" >
         </mat-form-field>
@@ -37,7 +37,7 @@
                 (change)="onSelectFile($event)"  >
                 <input matInput class="invisible" name="fileHidden" formControlName="Image"/>
         </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Subscribe</button>
+        <button mat-raised-button color="primary" type="submit">Update</button>
       </form>
     </mat-card-content>
   </mat-card>

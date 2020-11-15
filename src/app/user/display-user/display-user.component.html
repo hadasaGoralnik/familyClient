@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-content>
+    <img [src]="currentUser.Image" class="circle-image" *ngIf="currentUser.Image">
+    <span class="circle-name"  *ngIf="!currentUser.Image">
+        {{FirstLetter(currentUser.UserName)}}
+       </span>
+     <h2>{{currentUser.FirstName}} {{currentUser.LastName}}</h2>
+     <div>{{currentUser.Mail}}</div>
+     <div>{{currentUser.Birthday}}</div>
+     <br>
+     <!-- <a routerLink="/update-user"><button class="btn btn-outline-secondary" ><mat-icon>edit</mat-icon> Edit</button></a>
+    <a><button class="btn btn-outline-secondary" (click)="Unsubscribe()" ><mat-icon>person_remove</mat-icon> Unsubscribe</button></a> -->
+    </mat-card-content>
+  </mat-card>
+ 
+ 
+  
+ 
+
+ 
+
+ 
+ 
+ 
