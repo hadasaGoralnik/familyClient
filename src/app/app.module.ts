@@ -21,6 +21,7 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { DisplayUserComponent } from './user/display-user/display-user.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
+import { DemoModule } from './calander/module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { ChatComponent } from './chat/chat.component';
        ChatComponent,
   ],
   imports: [
+    DemoModule,
     MatrialModule,
     BrowserModule,
     FormsModule,
