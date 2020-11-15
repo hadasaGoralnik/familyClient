@@ -14,6 +14,9 @@ import { EventsComponent } from './event/events/events.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GroupListComponent } from './group/group-list/group-list.component';
 import { AddGroupComponent } from './group/add-group/add-group.component';
+import { EventDetailsComponent } from './event/event-details/event-details.component';
+import { CreateEventComponent } from './event/create-event/create-event.component';
+import { UpdateEventComponent } from './event/update-event/update-event.component';
 import { DisplayGroupComponent } from './group/display-group/display-group.component';
 import { UserListOfGroupComponent } from './group/user-list-of-group/user-list-of-group.component';
 import { AddUserToGroupComponent } from './group/add-user-to-group/add-user-to-group.component';
@@ -34,11 +37,14 @@ import { DemoModule } from './calander/module';
     AddGroupComponent,
     DisplayGroupComponent,
     UserListOfGroupComponent,
+    EventDetailsComponent,
     AddUserToGroupComponent,
     UpdateUserComponent,
     DisplayUserComponent,
     HomeComponent,
        ChatComponent,
+       CreateEventComponent,
+       UpdateEventComponent
   ],
   imports: [
     DemoModule,

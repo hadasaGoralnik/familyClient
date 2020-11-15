@@ -1,1 +1,17 @@
-<img src="../../assets/menu.JPG" style="width:20px;height: 20px;">
+<mat-card>
+    <mat-card-content>
+      <form  >
+        <h2>איש קשר חדש</h2>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="שם"  formControlName="name" required>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput  placeholder="שם משפחה" formControlName="lastname" required>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput  type="email" placeholder="מייל"  formControlName="mail" required>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">הוסף</button>
+      </form>
+    </mat-card-content>
+  </mat-card>

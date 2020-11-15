@@ -25,12 +25,15 @@ export class UserListOfGroupComponent implements OnInit {
   }
    DeleteUserFromGroup(UserId:number){
      console.log("DeleteUserFromGroup")
-    this.groupService.DeleteUserFromGroup({GroupId:this.groupService.currentGroup.Id,UserId:UserId}).subscribe(group=>{
-      var index=this.users.findIndex(user=>user.Id==UserId)
-      this.users.splice(index,1)
-      console.log(this.users)
-    },err=>  this.router.navigate(['/group-list/']))
-  }
+     if(this.groupService.currentGroup){
+      this.groupService.DeleteUserFromGroup({GroupId:this.groupService.currentGroup.Id,UserId:UserId}).subscribe(group=>{
+        var index=this.users.findIndex(user=>user.Id==UserId)
+        this.users.splice(index,1)
+        console.log(this.users)
+      },err=>  this.router.navigate(['/group-list/']))
+    }
+     }
+  
   RouteToAddUser(){
     this.router.navigate(['/add-user/'])
   }

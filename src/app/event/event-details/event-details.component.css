@@ -1,0 +1,32 @@
+img{
+    width: 439px;
+    height: 600px;
+    opacity: 0.6;
+    top: 0;
+    position: absolute;
+  }
+  
+  .div-menu{
+    background-color: #f44336;
+    height: 601px;
+    position: relative;
+    top: 0;
+  }
+  .div1{
+    position: absolute;
+    background: #ce8018;
+    width: 439px;
+    height: 600px;
+    left: 299px;
+    top: 50px;
+    }
+    .details{
+      width: 500px;
+      height: 600px;
+      background-color: crimson;
+      left: 816px;
+      position: absolute;
+      top: 50.8px;
+    }
+  
+  

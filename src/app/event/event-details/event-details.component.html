@@ -1,0 +1,42 @@
+<div class="div1">
+    <img src="../../assets/menu.JPG">
+    <div class="div-menu">
+        <p *ngFor="let item of menu">
+            {{item.VolunteerId}}-{{item.MenuOrderNumber}}-{{item.MenuOrderNumber}}-{{item.Quantity}}
+        </p>
+    </div>
+</div>
+<mat-icon> local_dining</mat-icon>
+<mat-icon> restaurant</mat-icon>
+<mat-icon>add</mat-icon>
+<mat-icon>add_box</mat-icon>
+<mat-icon>add_circle</mat-icon>
+<mat-icon>add_circle_outline</mat-icon>
+<div class="details">
+    <mat-icon style=" left: 235px;
+    position: relative;
+    top: 20px;font-size: 35px;">calendar_today</mat-icon>
+    <h1 style="margin: 25px 210px 16px;">{{events.Title}}‏</h1>
+    <mat-icon>date_range</mat-icon>
+    <p>date:{{events.Date}}</p>
+    <mat-icon>access_time</mat-icon>
+    <p>time:{{events.Date}}</p>
+    <mat-icon>home</mat-icon>
+    <p>address:{{events.Address}}-{{events.City}}</p>
+    <mat-icon>description</mat-icon>
+    <p>description:{{events.Description}}</p>
+    <mat-icon>person</mat-icon>
+    <p>promoter:{{events.User.FirstName}}</p>
+    <mat-icon>question_answer</mat-icon>
+    <p>comment:{{events.Comment}}</p>
+    <mat-icon> local_cafe</mat-icon>
+    <p>Dairy/Fleshy:{{events.IsDairy}}</p>
+    <mat-icon>edit</mat-icon>
+    <mat-icon>delete_sweep</mat-icon>
+    <mat-icon>mail</mat-icon>
+</div>
+<div>
+</div>
+<mat-icon> insert_photo</mat-icon>
+<mat-icon>add_photo_alternate</mat-icon>
+<div *ngFor="let item of picture" style="background-color: rgb(252, 191, 203);">{{item.Image}}</div>

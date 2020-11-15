@@ -21,4 +21,5 @@ export class User {
     Menu: Menu[];
     Message: Messages[];
     Groups1: Group[];
+
 }
