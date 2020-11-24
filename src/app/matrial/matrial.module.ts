@@ -11,6 +11,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [],
   imports: [
@@ -25,7 +26,8 @@ import {MatListModule} from '@angular/material/list';
     MatSidenavModule,
     MatRadioModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatCheckboxModule
   ],
   exports:[
     MatFormFieldModule,
@@ -38,7 +40,8 @@ import {MatListModule} from '@angular/material/list';
     MatToolbarModule,
     MatRadioModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatCheckboxModule
   ]
 })
 export class MatrialModule { }

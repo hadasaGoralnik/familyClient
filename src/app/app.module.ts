@@ -24,6 +24,8 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { DisplayUserComponent } from './user/display-user/display-user.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
+import { CreateMenuComponent } from './menu/create-menu/create-menu.component';
+import { UpdateMenuComponent } from './menu/update-menu/update-menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,9 @@ import { ChatComponent } from './chat/chat.component';
     HomeComponent,
        ChatComponent,
        CreateEventComponent,
-       UpdateEventComponent
+       UpdateEventComponent,
+       CreateMenuComponent,
+       UpdateMenuComponent
   ],
   imports: [
     MatrialModule,
