@@ -15,7 +15,7 @@ export class EventsComponent implements OnInit {
     
     this.eventService.getEvents(this.groupId).subscribe(events => {
       this.events = events;
-
+      // events[0].Address
     });
   }
   // onSubmit(){

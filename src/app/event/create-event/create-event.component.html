@@ -27,7 +27,7 @@
       </mat-form-field>
       <mat-icon>replay</mat-icon>
       <section class="example-section">
-        <mat-checkbox class="example-margin" [checked]="true">Repeat?</mat-checkbox>
+        <mat-checkbox class="example-margin" [checked]="true" (click)="Repeat()">Repeat?</mat-checkbox>
       </section>
       <mat-icon>question_answer</mat-icon>
       <mat-form-field class="full-width-input">
@@ -35,7 +35,7 @@
       </mat-form-field>
       <mat-icon> local_cafe</mat-icon>
       <section class="example-section">
-        <mat-checkbox class="example-margin" [checked]="true">Is Dairy?</mat-checkbox>
+        <mat-checkbox class="example-margin" [checked]="true" (click)="DairyOrFleshy()">Is Dairy?</mat-checkbox>
       </section>
       <mat-select placeholder="eventsKind" formControlName="eventsKind" class="full-width-input" required>
         <mat-option *ngFor="let item of ArreventsKind" [value]="item.Id">

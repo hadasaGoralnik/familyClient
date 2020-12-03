@@ -1,46 +1,83 @@
 <div class="div1">
-    <img src="../../assets/menu.JPG">
     <div class="div-menu">
         <p *ngFor="let item of menu">
-            {{item.User.FirstName}}-{{item.MenuOrderNumber}}-{{item.MenuOrderNumber}}-{{item.Quantity}}
+            {{item.User.FirstName}} prepares the num of serving:{{item.MenuOrderNumber}}-{{item.Name}}
+            cost:{{item.Quantity*item.Cost}}
+            <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>delete_sweep</mat-icon>
+            </button>
         </p>
+        <button mat-icon-button>
+            <mat-icon>add_circle</mat-icon>
+        </button>
+    </div>
+    <div class="details">
+        <div class="calendar">
+            <p *ngIf="!isEdit">10</p>
+            <mat-icon style=" left: 235px;
+        top: 20px;font-size: 35px; " *ngIf="!isEdit">calendar_today
+            </mat-icon>
+        </div>
+        <mat-card-content>
+            <h2 *ngIf="!isEdit" style="margin: 25px 210px 16px;">{{events.Title}}‏</h2>
+            <h2 *ngIf="isEdit">Update Event</h2>
+            <p *ngIf="isEdit">Title:</p>
+            <input *ngIf="isEdit" [(ngModel)]="events.Title" class="edit">
+            <mat-icon>date_range</mat-icon>
+            <p *ngIf="!isEdit">date:{{events.Date|date:'shortDate'}}</p>
+            <p *ngIf="isEdit">date:</p>
+            <input *ngIf="isEdit" type="datetime-local" [(ngModel)]="events.Date" class="edit">
+            <mat-icon *ngIf="!isEdit">access_time</mat-icon>
+            <p *ngIf="!isEdit">time:{{events.Date|date:'shortTime'}}</p>
+            <mat-icon>home</mat-icon>
+            <p *ngIf="!isEdit">address:{{events.Address}}-{{events.City}}</p>
+            <p *ngIf="isEdit">address:</p>
+            <input *ngIf="isEdit" [(ngModel)]="events.Address" class="edit">
+            <p *ngIf="isEdit">City:</p>
+            <input *ngIf="isEdit" [(ngModel)]="events.City" class="edit">
+            <mat-icon>description</mat-icon>
+            <p *ngIf="!isEdit">description:{{events.Description}}</p>
+            <p *ngIf="isEdit">description:</p>
+            <input *ngIf="isEdit" [(ngModel)]="events.Description" class="edit">
+            <mat-icon>person</mat-icon>
+            <p *ngIf="!isEdit">promoter:{{events.User.FirstName}}</p>
+            <mat-icon>question_answer</mat-icon>
+            <p *ngIf="!isEdit">comment:{{events.Comment}}</p>
+            <p *ngIf="isEdit">comment:</p>
+            <input *ngIf="isEdit" [(ngModel)]="events.Comment" class="edit">
+            <mat-icon> local_cafe</mat-icon>
+            <p *ngIf="!isEdit">Dairy/Fleshy:{{isDairyOrFleshy()}}</p>
+            <section class="example-section" *ngIf="isEdit">
+                <mat-checkbox class="example-margin" [checked]="events.IsDairy" (click)="DairyOrFleshy()">Is Dairy?</mat-checkbox>
+            </section>
+            <mat-icon>replay</mat-icon>
+            <p *ngIf="!isEdit">Repeat:{{isRepeat()}}</p>
+            <section class="example-section" *ngIf="isEdit">
+                <mat-checkbox class="example-margin" [checked]="events.Repeat" (click)="Repeat()">Repeat?</mat-checkbox>
+            </section>
+            <button *ngIf="isEdit" type="submit" mat-raised-button color="primary">Update</button>
+            <button mat-icon-button>
+                <mat-icon *ngIf="!isEdit" (click)="isEdit=true;">edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon *ngIf="!isEdit">delete_sweep</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon *ngIf="!isEdit">mail</mat-icon>
+            </button>
+        </mat-card-content>
     </div>
 </div>
-<mat-icon> local_dining</mat-icon>
-<mat-icon> restaurant</mat-icon>
-<mat-icon>add</mat-icon>
-<mat-icon>add_box</mat-icon>
-<mat-icon>add_circle</mat-icon>
-<mat-icon>add_circle_outline</mat-icon>
-<div class="details">
-    <mat-icon style=" left: 235px;
-    position: relative;
-    top: 20px;font-size: 35px;">calendar_today</mat-icon>
-    <h1 style="margin: 25px 210px 16px;">{{events.Title}}‏</h1>
-    <mat-icon>date_range</mat-icon>
-    <p>date:{{events.Date|date:'shortDate'}}</p>
-    <mat-icon>access_time</mat-icon>
-    <p>time:{{events.Date|date:'shortTime'}}</p>
-    <mat-icon>home</mat-icon>
-    <p>address:{{events.Address}}-{{events.City}}</p>
-    <mat-icon>description</mat-icon>
-    <p>description:{{events.Description}}</p>
-    <mat-icon>person</mat-icon>
-    <p>promoter:{{events.User.FirstName}}</p>
-    <mat-icon>question_answer</mat-icon>
-    <p>comment:{{events.Comment}}</p>
-    <mat-icon> local_cafe</mat-icon>
-    <p>Dairy/Fleshy:{{isDairyOrFleshy()}}</p>
-    <mat-icon>replay</mat-icon>
-    <p>Repeat:{{isRepeat()}}</p>
-    <mat-icon>edit</mat-icon>
-    <mat-icon>delete_sweep</mat-icon>
-    <mat-icon>mail</mat-icon>
+<div style="position: relative;">
+    <button mat-icon-button>
+        <mat-icon>add_photo_alternate</mat-icon>
+    </button>
+    <input type="file" (change)="onFileSelect($event)">
+    <div style="position: relative;">
+        <img *ngFor="let item of pictures" width="100" height="100" src="https://localhost:44328/Images/{{item.Image}}"
+            alt="{{item.Name}}">
+    </div>
 </div>
-<div>
-</div>
-<mat-icon> insert_photo</mat-icon>
-<mat-icon>add_photo_alternate</mat-icon>
-<input type="file"   (change)="onFileSelect($event)">
-<button (click)="uploadFile()">Upload</button>
-<img *ngFor="let item of pictures" width="200" height="200" src="https://localhost:44328/Images/{{item.Image}}" alt="{{item.Name}}">

@@ -1,5 +1,8 @@
-<button type="submit" mat-raised-button color="primary">התחבר</button>
+<!-- <button type="submit" mat-raised-button color="primary">התחבר</button> -->
 
-<div *ngFor="let event of events"  class="card">
-{{event.Adress}} - {{event.City}}
+<div *ngFor="let event of events" class="card">
+    <p>{{event.Address}}-{{event.City}}</p>
+    <p>{{event.Date|date:'shortDate'}}</p>
+    <p>{{event.Date|date:'shortTime'}}</p>
+    <button type="submit" mat-raised-button color="primary">Details</button>
 </div>

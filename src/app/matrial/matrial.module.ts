@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 @NgModule({
   declarations: [],
   imports: [
@@ -27,7 +28,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatRadioModule,
     MatMenuModule,
     MatListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCarouselModule
   ],
   exports:[
     MatFormFieldModule,
@@ -41,7 +43,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatRadioModule,
     MatMenuModule,
     MatListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCarouselModule
   ]
 })
 export class MatrialModule { }
