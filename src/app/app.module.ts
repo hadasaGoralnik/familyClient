@@ -24,7 +24,12 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { DisplayUserComponent } from './user/display-user/display-user.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
+<<<<<<< HEAD
 import { DemoModule } from './calander/module';
+=======
+import { CreateMenuComponent } from './menu/create-menu/create-menu.component';
+import { UpdateMenuComponent } from './menu/update-menu/update-menu.component';
+>>>>>>> 2d977835ea0aa89ca07499a8de2671822b94bf75
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +49,9 @@ import { DemoModule } from './calander/module';
     HomeComponent,
        ChatComponent,
        CreateEventComponent,
-       UpdateEventComponent
+       UpdateEventComponent,
+       CreateMenuComponent,
+       UpdateMenuComponent
   ],
   imports: [
     DemoModule,
