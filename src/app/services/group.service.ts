@@ -8,6 +8,7 @@ import { Group } from '../DTO/MODELS/group';
 import { DeleteUserFromGroupRequest } from '../DTO/Requests/delete-user-from-group-request';
 import { AddUeserToGroupRequest } from '../DTO/Requests/add-ueser-to-group-request';
 import { Events } from '../DTO/MODELS/events';
+import { User } from '../DTO/MODELS/user.model';
 
 
 
@@ -16,6 +17,7 @@ import { Events } from '../DTO/MODELS/events';
 })
 export class GroupService {
   currentGroup:Group
+  users:Array<User>
 
   constructor(private http:HttpClient) { }
   GetGroups(request:GetGroupsRequest): Observable<any>{
@@ -41,6 +43,12 @@ export class GroupService {
       request
     );
   } 
+  // AddImag(request:AddGroupRequest):Observable<any>{
+  //   return this.http.post(
+  //     'https://localhost:44328/api/group/addgroup',
+  //     request
+  //   );
+  // }
   AddUserToGroup(request:AddUeserToGroupRequest):Observable<any>{
     console.log("in service")
     return this.http.post(

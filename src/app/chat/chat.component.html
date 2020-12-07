@@ -5,9 +5,9 @@
     <li style="width:100%" *ngFor="let msg of messages">
       <div class="msj macro" *ngIf="msg.UserID!=currentUser?.Id"> 
 
-      <div *ngIf="users[msg.UserID].Image" class="avatar"><img class="img" style="width:100%;" [src]="users[msg.UserID].Image" /></div>
-      <div *ngIf="!users[msg.UserID].Image" class="avatar" style="padding:0px 0px 0px 10px !important"> <span class="circle-name" >
-        {{FirstLetter(users[msg.UserID].UserName)}}
+      <div *ngIf="users[msg.UserID]?.Image" class="avatar"><img class="img" style="width:100%;" [src]="users[msg.UserID]?.Image" /></div>
+      <div *ngIf="!users[msg.UserID]?.Image" class="avatar" style="padding:0px 0px 0px 10px !important"> <span class="circle-name" >
+        {{FirstLetter(users[msg.UserID]?.UserName)}}
        </span></div>     
           <div class="text text-l">
               <p>{{msg.Body}}</p> 
@@ -20,8 +20,8 @@
            <p>{{msg.Body}}</p>
             <p><small>{{ msg.Date?.toDateString()}} {{ msg.Date?.toTimeString().split(" ")[0]}}</small></p>
         </div>
-    <div *ngIf="currentUser.Image" class="avatar" style="padding:0px 0px 0px 10px !important"><img class="img"  style="width:100%;" [src]="currentUser.Image" /></div> 
-    <div *ngIf="!currentUser.Image" class="avatar" style="padding:0px 0px 0px 10px !important"> <span class="circle-name" >
+    <div *ngIf="currentUser?.Image" class="avatar" style="padding:0px 0px 0px 10px !important"><img class="img"  style="width:100%;" [src]="currentUser?.Image" /></div> 
+    <div *ngIf="!currentUser?.Image" class="avatar" style="padding:0px 0px 0px 10px !important"> <span class="circle-name" >
         {{FirstLetter(currentUser.UserName)}}
        </span></div>     
     </div>  

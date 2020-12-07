@@ -33,4 +33,11 @@ export class DisplayGroupComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     this.chatService.websocket?.close();
   }
+  // AddImag(){
+  //   this.groupService.AddImag()
+  // .subscribe(x=>{
+  //   console.log(x);
+  // })
+  // }
+  
 }

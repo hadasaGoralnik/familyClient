@@ -93,8 +93,8 @@ GetUserById(userId:number){
   this.userService.GetUserById(userId).subscribe(user=>{this.users[user.Id]=user})
 }
 FirstLetter(userId:string):string{
-  var name=userId.toUpperCase()
-  return name.substring(0,2)
+  var name=userId?.toUpperCase()
+  return name?.substring(0,2)
 }
 get Body() { return this.addChatMessageForm.get('Body'); }
 

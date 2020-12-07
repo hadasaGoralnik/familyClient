@@ -17,6 +17,7 @@ export class UserListOfGroupComponent implements OnInit {
     if(this.groupService.currentGroup){
       this.groupService.GetUsers(this.groupService.currentGroup.Id).subscribe(users=>{
         this.users=users
+        this.groupService.users=users
         console.log(users)
         console.log(this.users)
        })
