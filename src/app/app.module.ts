@@ -25,6 +25,10 @@ import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
 import { CreateMenuComponent } from './menu/create-menu/create-menu.component';
 import { UpdateMenuComponent } from './menu/update-menu/update-menu.component';
+import { CreateEventModalComponent } from './event/create-event-modal/create-event-modal.component';
+import { NgxGalleryModule } from 'ngx-gallery-9';
+import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CreateMenuModalComponent } from './menu/create-menu-modal/create-menu-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,9 +49,12 @@ import { UpdateMenuComponent } from './menu/update-menu/update-menu.component';
        ChatComponent,
        CreateEventComponent,
        CreateMenuComponent,
-       UpdateMenuComponent
+       UpdateMenuComponent,
+       CreateEventModalComponent,
+       CreateMenuModalComponent
   ],
   imports: [
+    NgxGalleryModule,
     MatrialModule,
     BrowserModule,
     FormsModule,
@@ -55,6 +62,7 @@ import { UpdateMenuComponent } from './menu/update-menu/update-menu.component';
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatDialogModule
     
   ],
   providers: [],

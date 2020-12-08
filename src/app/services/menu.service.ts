@@ -16,4 +16,7 @@ export class MenuService {
   GetMenusEventId(id:number): Observable<Menu[]>{
     return this.http.get<Menu[]>(`https://localhost:44328/api/menu/GetMenusByEventId/${id}`);
   }
+  GetMenuByMenuId(id:number) :Observable<Menu>{
+    return this.http.get<Menu>(`https://localhost:44328/api/menu/GetMenuByMenuId/${id}`)
+  }
 }
