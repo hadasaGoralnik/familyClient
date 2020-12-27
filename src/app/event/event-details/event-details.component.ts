@@ -12,6 +12,11 @@ import { CreateEventModalComponent } from '../create-event-modal/create-event-mo
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery-9';
 import 'hammerjs';
 import { CreateMenuModalComponent } from 'src/app/menu/create-menu-modal/create-menu-modal.component';
+import { MenuDetailsDailogComponent } from 'src/app/menu/menu-details-dailog/menu-details-dailog.component';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { NumberValueAccessor } from '@angular/forms';
+
 
 @Component({
   selector: 'app-event-details',
@@ -21,10 +26,12 @@ import { CreateMenuModalComponent } from 'src/app/menu/create-menu-modal/create-
 export class EventDetailsComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[] = [];
-  events: Events;
+  events: Events = new Events();
   imageFile: File;
-  singleMenu:Menu;
+  singleMenu: Menu;
   pictures: Picture[] = [];
+  picture: Picture;
+  index: number;
   menu: Menu[] = [];
   Appetizer: Menu[] = [];
   SecondDish: Menu[] = [];
@@ -36,10 +43,12 @@ export class EventDetailsComponent implements OnInit {
   today: number;
   isRepeatEdit = 1;
   isDairy = true;
-  menuId: number = 2;
-  eventId: number = 2;
+  menuId: number;
+  eventId: number;
+  currentUser: User;
+
   constructor(private eventService: EventsService, private menuService: MenuService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog, private activatedRoute: ActivatedRoute, private UserService: UserService) {
   }
 
   ngOnInit(): void {
@@ -54,9 +63,9 @@ export class EventDetailsComponent implements OnInit {
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide,
         imageSwipe: true,
-        imageAutoPlay:true,
-        imageAutoPlayInterval:4500,
-        imageInfinityMove:true
+        imageAutoPlay: true,
+        imageAutoPlayInterval: 4500,
+        imageInfinityMove: true
       },
       // max-width 800
       {
@@ -76,9 +85,23 @@ export class EventDetailsComponent implements OnInit {
     ];
 
   }
+  getEvent() {
+    this.activatedRoute.paramMap.subscribe(res => {
+      if (Number(res.get("id"))) {
+        this.eventId = Number(res.get("id"));
+        this.eventService.GetEventById(Number(res.get("id"))).subscribe(ress => {
+          this.events = ress;
+          this.eventService.SetcurrentEventId(this.events.Id);
+        })
+      }
+    })
+  }
   getPictures() {
     this.eventService.GetPicturesByEventId(this.eventId).subscribe(x => {
       this.pictures = x;
+      if (this.pictures.length)
+        this.index = this.pictures.length + 1;
+      else this.index = 0;
       this.pictures.forEach(pic => {
         this.galleryImages.push({
           small: 'https://localhost:44328/Images/' + pic.Image,
@@ -86,13 +109,22 @@ export class EventDetailsComponent implements OnInit {
           big: 'https://localhost:44328/Images/' + pic.Image,
         });
       });
-
-      //https://localhost:44328/Images/{{item.Image}}
+    });
+  }
+  getPicture() {
+    this.eventService.GetPicturesByEventId(this.eventId).subscribe(x => {
+      this.pictures = x;
+      this.galleryImages.push({
+        small: 'https://localhost:44328/Images/' + this.pictures[this.index].Image,
+        medium: 'https://localhost:44328/Images/' + this.pictures[this.index].Image,
+        big: 'https://localhost:44328/Images/' + this.pictures[this.index].Image,
+      });
+      this.index++;
     });
   }
   uploadFile() {
     this.eventService.uploadImage(this.imageFile, this.eventId).subscribe(x => {
-      this.getPictures();
+      this.getPicture();
     });
 
   }
@@ -122,12 +154,6 @@ export class EventDetailsComponent implements OnInit {
       this.isRepeatEdit = 0;
     else this.isRepeatEdit = 1;
   }
-  getEvent() {
-    this.eventService.GetEventById(this.eventId).subscribe(x => {
-      this.events = x;
-    });
-
-  }
   getMenus() {
     this.menuService.GetMenusEventId(this.eventId).subscribe(x => {
       this.menu = x;
@@ -153,12 +179,14 @@ export class EventDetailsComponent implements OnInit {
     });
 
   }
-  getSingleMenu(){
+  getSingleMenu() {
     this.menuService.GetMenuByMenuId(this.menuId).subscribe(x => {
       this.singleMenu = x;
+
     });
   }
   openModal() {
+
     const dialogRef = this.dialog.open(CreateEventModalComponent, {
       data: { eventId: this.eventId },
     });
@@ -166,15 +194,29 @@ export class EventDetailsComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       this.getEvent();
     });
+
   }
-  openModal1(menuId:number) {
+  deleteMenu(menuId: number){
+    
+  }
+  openDialog(menuId?: number) {
+    const dialogRef = this.dialog.open(MenuDetailsDailogComponent, {
+      data: { Id: menuId }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openModal1(menuId?: number) {
+
     const dialogRef = this.dialog.open(CreateMenuModalComponent, {
-      data: { menuId: this.menuId },
+      data: { Id: menuId },
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
       this.getSingleMenu();
     });
+
   }
 
 }

@@ -15,7 +15,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { GroupListComponent } from './group/group-list/group-list.component';
 import { AddGroupComponent } from './group/add-group/add-group.component';
 import { EventDetailsComponent } from './event/event-details/event-details.component';
-import { CreateEventComponent } from './event/create-event/create-event.component';
 import { DisplayGroupComponent } from './group/display-group/display-group.component';
 import { UserListOfGroupComponent } from './group/user-list-of-group/user-list-of-group.component';
 import { AddUserToGroupComponent } from './group/add-user-to-group/add-user-to-group.component';
@@ -23,12 +22,12 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { DisplayUserComponent } from './user/display-user/display-user.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
-import { CreateMenuComponent } from './menu/create-menu/create-menu.component';
-import { UpdateMenuComponent } from './menu/update-menu/update-menu.component';
 import { CreateEventModalComponent } from './event/create-event-modal/create-event-modal.component';
 import { NgxGalleryModule } from 'ngx-gallery-9';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CreateMenuModalComponent } from './menu/create-menu-modal/create-menu-modal.component';
+import { MenuDetailsDailogComponent } from './menu/menu-details-dailog/menu-details-dailog.component';
+import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,11 +46,10 @@ import { CreateMenuModalComponent } from './menu/create-menu-modal/create-menu-m
     DisplayUserComponent,
     HomeComponent,
        ChatComponent,
-       CreateEventComponent,
-       CreateMenuComponent,
-       UpdateMenuComponent,
        CreateEventModalComponent,
-       CreateMenuModalComponent
+       CreateMenuModalComponent,
+       MenuDetailsDailogComponent,
+       HeaderComponent
   ],
   imports: [
     NgxGalleryModule,

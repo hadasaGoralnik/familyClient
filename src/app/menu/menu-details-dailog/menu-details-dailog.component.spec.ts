@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateEventComponent } from './create-event.component';
+import { MenuDetailsDailogComponent } from './menu-details-dailog.component';
 
-describe('CreateEventComponent', () => {
-  let component: CreateEventComponent;
-  let fixture: ComponentFixture<CreateEventComponent>;
+describe('MenuDetailsDailogComponent', () => {
+  let component: MenuDetailsDailogComponent;
+  let fixture: ComponentFixture<MenuDetailsDailogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateEventComponent ]
+      declarations: [ MenuDetailsDailogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateEventComponent);
+    fixture = TestBed.createComponent(MenuDetailsDailogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

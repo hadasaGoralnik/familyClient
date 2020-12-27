@@ -34,9 +34,8 @@
       <span matPrefix>
         <mat-icon matPrefix>description</mat-icon>
       </span>
-      <input matInput placeholder="description" formControlName="Address" required>
+      <input matInput placeholder="description" formControlName="Description" required>
     </mat-form-field>
-  
     <mat-form-field class="full-width-input">
       <span matPrefix>
         <mat-icon matPrefix>question_answer</mat-icon>
@@ -47,13 +46,13 @@
         <span matPrefix>
           <mat-icon matPrefix>replay</mat-icon>
         </span>
-        <mat-checkbox class="example-margin" [checked]="true" (click)="Repeat()">Repeat?</mat-checkbox>
+        <mat-checkbox class="example-margin" [checked]="true" (click)="Repeat()" formControlName="Repeat">Repeat?</mat-checkbox>
       </section>
     <section class="example-section">
       <span matPrefix>
         <mat-icon matPrefix> local_cafe</mat-icon>
       </span>
-      <mat-checkbox class="example-margin" [checked]="true" (click)="DairyOrFleshy()">Is Dairy?</mat-checkbox>
+      <mat-checkbox class="example-margin" [checked]="true" (click)="DairyOrFleshy()" formControlName="IsDairy">Is Dairy?</mat-checkbox>
     </section>
     <mat-form-field class="full-width-input">
     <mat-select placeholder="eventsKind" formControlName="EventKindId" class="full-width-input" required>

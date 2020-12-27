@@ -1,89 +1,116 @@
 <div class="div1">
     <div class="div-menu">
-        <h2>Appetizer:</h2>
+        <h2 *ngIf="Appetizer[0]">Appetizer:</h2>
         <p *ngFor="let item of Appetizer">
             <button mat-icon-button>
-                <mat-icon (click)="openModal1(1);">edit</mat-icon>
+                <mat-icon (click)="openDialog(item.Id)">description</mat-icon>
             </button>
             <button mat-icon-button>
-                <mat-icon >delete_sweep</mat-icon>
-            </button>{{item.Name}}</p>
-        <h2>Second dish:</h2>
+                <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon (click)="deleteMenu(item.Id);">delete_sweep</mat-icon>
+            </button>
+            {{item.Name}}</p>
+        <h2 *ngIf="SecondDish[0]">Second dish:</h2>
         <p *ngFor="let item of SecondDish">
             <button mat-icon-button>
-                <mat-icon (click)="openModal1(1);">edit</mat-icon>
+                <mat-icon (click)="openDialog(item.Id)">description</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>delete_sweep</mat-icon>
+            </button>
+            {{item.Name}}</p>
+        <h2 *ngIf="SideDish[0]">Side dish:</h2>
+        <p *ngFor="let item of SideDish">
+            <button mat-icon-button>
+                <mat-icon (click)="openDialog(item.Id)">description</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
             </button>
             <button mat-icon-button>
                 <mat-icon>delete_sweep</mat-icon>
             </button>{{item.Name}}</p>
-        <h2>Side dish:</h2>
-        <p *ngFor="let item of SideDish"> <button mat-icon-button>
-                <mat-icon (click)="openModal1(1);">edit</mat-icon>
+        <h2 *ngIf="MainDish[0]">Main dish:</h2>
+        <p *ngFor="let item of MainDish">
+            <button mat-icon-button>
+                <mat-icon (click)="openDialog(item.Id)">description</mat-icon>
+            </button> <button mat-icon-button>
+                <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
             </button>
             <button mat-icon-button>
                 <mat-icon>delete_sweep</mat-icon>
             </button>{{item.Name}}</p>
-        <h2>Main dish:</h2>
-        <p *ngFor="let item of MainDish"> <button mat-icon-button>
-                <mat-icon (click)="openModal1(1);">edit</mat-icon>
+        <h2 *ngIf="Desserts[0]">Desserts:</h2>
+        <p *ngFor="let item of Desserts">
+            <button mat-icon-button>
+                <mat-icon (click)="openDialog(item.Id)">description</mat-icon>
+            </button> <button mat-icon-button>
+                <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
             </button>
             <button mat-icon-button>
                 <mat-icon>delete_sweep</mat-icon>
             </button>{{item.Name}}</p>
-        <h2>Desserts:</h2>
-        <p *ngFor="let item of Desserts"> <button mat-icon-button>
-            <mat-icon (click)="openModal1(1);">edit</mat-icon>
-        </button>
         <button mat-icon-button>
-            <mat-icon >delete_sweep</mat-icon>
-        </button>{{item.Name}}</p>
-        <!-- <p *ngFor="let item of menu">
-            {{item.User.FirstName}} prepares the num of serving:{{item.MenuOrderNumber}}-{{item.Name}}
-            cost:{{item.Quantity*item.Cost}} -->
-        <button mat-icon-button>
-            <mat-icon (click)="openModal1(0);">add_circle</mat-icon>
+            <mat-icon (click)="openModal1();">add_circle</mat-icon>
         </button>
     </div>
     <ngx-gallery [options]="galleryOptions" class="pic" [images]="galleryImages"></ngx-gallery>
-    <div class="details">
+    <div style="text-align: center;">
+        <button mat-icon-button (click)="fileInput.click()">
+            <mat-icon>add_photo_alternate</mat-icon>
+        </button>
+        <input type="file" #fileInput (change)="onFileSelect($event)" style="margin: auto;display:none;">
+    </div>
+    <div class="details" *ngIf="events.Title">
         <mat-card class="event-card">
-            <mat-card-header>
-                <!-- <div mat-card-avatar class="example-header-image"></div> -->
-                <mat-card-title >{{events.Title}}</mat-card-title>
-                <!-- <mat-card-subtitle>{{events.Description}}</mat-card-subtitle> -->
+            <mat-card-header style="display: block;">
+                <mat-card-title>{{events.Title}}</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <p>
-                    <mat-icon>date_range</mat-icon>
-                    {{events.Date|date:'shortDate'}}
+                 
+                 <span> {{events.Date|date:'shortDate'}}</span>  
+                 <mat-icon>date_range</mat-icon>
                 </p>
                 <p>
+                  
+                    <span>   {{events.Date|date:'shortTime'}}</span>  
                     <mat-icon>access_time</mat-icon>
-                    {{events.Date|date:'shortTime'}}
                 </p>
                 <p>
-                    <mat-icon>home</mat-icon>
-                    {{events.Address}}-{{events.City}}
+                
+                    <span>  {{events.Address}}-{{events.City}}</span> 
+                    <mat-icon>home</mat-icon> 
                 </p>
                 <p>
+                  
+                    <span> {{events.Description}}</span>  
                     <mat-icon>description</mat-icon>
-                    {{events.Description}}
                 </p>
                 <p>
+                   <span>
+                    promoter:{{events.User.FirstName}}</span>
                     <mat-icon>person</mat-icon>
-                    promoter:{{events.User.FirstName}}
                 </p>
                 <p>
+                   
+                   <span> comment:{{events.Comment}}</span>
                     <mat-icon>question_answer</mat-icon>
-                    comment:{{events.Comment}}
                 </p>
                 <p>
+                    
+                   <span> Dairy/Fleshy:{{isDairyOrFleshy()}}</span>
                     <mat-icon> local_cafe</mat-icon>
-                    Dairy/Fleshy:{{isDairyOrFleshy()}}
                 </p>
                 <p>
+                    
+                 <span> Repeat:{{isRepeat()}}</span>
                     <mat-icon>replay</mat-icon>
-                    Repeat:{{isRepeat()}}
                 </p>
             </mat-card-content>
             <mat-card-actions>
@@ -97,8 +124,3 @@
         </mat-card>
     </div>
 </div>
-<!-- <div style="height: 20px;"></div> -->
-<button mat-icon-button>
-    <mat-icon>add_photo_alternate</mat-icon>
-</button>
-<input type="file" (change)="onFileSelect($event)">

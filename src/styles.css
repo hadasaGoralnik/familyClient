@@ -1,12 +1,12 @@
 @import"~@angular/material//prebuilt-themes/indigo-pink.css";
-html, body { height: 100%; }
+html, body { height: 100%;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
     transform: none !important;
 }
 .form-wrapper-modal-w {
     text-align: center;
-    margin: 0px auto;
+    margin: 0px auto!important;
     background-color: #fff;
     direction: ltr;
     color: #1c799e !important;
@@ -14,6 +14,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     position: relative;
     font-size: 16px;
     line-height: 28px;
+    z-index: 20000!important;
 }
 .mat-dialog-container {
     background: white;
@@ -58,4 +59,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .btn-blue:disabled {
     background-color: #ccc;
     color: white;
+}
+.ngx-gallery-arrow-wrapper{
+    z-index: 1000!important;
 }
