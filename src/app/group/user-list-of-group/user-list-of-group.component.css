@@ -43,8 +43,21 @@ img{
   .clear{
       text-align: right;
       position: absolute;
-      left: 87%;
+
   }
   .clear-icon{
     font-size: 17px;
+  }
+  h1{
+      text-align: center;
+  }
+  .dropdown-divider{
+    width: 20%;
+    height: 0;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #000000;
+  }
+  .size{
+    margin-left:-19% !important ;
   }

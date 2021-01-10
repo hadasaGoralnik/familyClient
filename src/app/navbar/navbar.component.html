@@ -1,75 +1,56 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav
-      #drawer
-      class="sidenav"
-      color="accent"
-      fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false"
-    >
-      <mat-nav-list>
-        <div class="toolbar-top">
-          <div
-            *ngIf="userLoggedIn"
-            class="d-flex justify-content-between align-items-center">
-            <br>
-            <span class="circle-name" *ngIf="!currentUser.Image"data-toggle="dropdown">
-                {{FirstLetter(currentUser.UserName)}}
-               </span>
-               <img [src]="currentUser.Image" class="circle-image" *ngIf="currentUser.Image"data-toggle="dropdown">
-              
-               <br>
-            <span id="user-name" class="bold small-font">
-              Hi
-              {{currentUser.UserName}}!
-            </span>
-            <div class="dropdown-menu"   aria-labelledby="dropdownMenuButton">
-              <app-display-user></app-display-user>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-nav-list>
 
-            </div>
-            <a routerLink="/update-user"><button class="btn btn-outline-secondary" ><mat-icon>edit</mat-icon> Edit</button></a>
-            <a><button class="btn btn-outline-secondary" (click)="Unsubscribe()" ><mat-icon>person_remove</mat-icon> Unsubscribe</button></a>
-            <!-- <button class="open-button" onclick="openForm()">Chat</button> -->
+      <div class="user" *ngIf="userLoggedIn">
+        <br>
+        <div class="container">
+          <div class="circle-name" *ngIf="!currentUser.Image" (click)="displayUser()">
+            {{FirstLetter(currentUser.UserName)}}
           </div>
+          <img [src]="currentUser.Image" class="circle-image" *ngIf="currentUser.Image" (click)="displayUser()">
         </div>
-  
-        <div class="btn-nav-wrapper">
-          <ng-container *ngFor="let page of pages">
-            <button   *ngIf="
+
+
+
+        <div id="user-name" class="bold small-font">
+          Hi
+          {{currentUser.UserName}}!
+        </div>
+
+
+
+      </div>
+      <app-display-user *ngIf="display"></app-display-user>
+      <div class="btn-nav-wrapper">
+        <ng-container *ngFor="let page of pages">
+          <button *ngIf="
             (userLoggedIn && page.viewMenuTab) ||
             (!userLoggedIn && page.isLogin) ||
             (userLoggedIn && page.isLogout)
-          "
-              routerLinkActive="active"
-              class="btn-nav"
-              mat-stroked-button
-              color="primary"
-              style="width: 100%;"
-              [routerLink]="page.route"
-              (click)="page.isLogout ? logout() : ''"
-            >
-            <mat-icon>{{ page.icon }}</mat-icon>   {{ page.title }} 
-            </button></ng-container
-          >
-        </div>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content class="sid-content">
-      <mat-toolbar class="page-header" color="primary">
-        <button
-          class="btn-toggle-navi"
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()"
-        >
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
-   
-      </mat-toolbar>
-      <div class="content-wrapper">
-        <ng-content></ng-content>
+          " routerLinkActive="active" class="btn-nav" mat-stroked-button style="width: 100%;" [routerLink]="page.route"
+            (click)="page.isLogout ? logout() : ''">
+            <mat-icon>{{ page.icon }}</mat-icon> {{ page.title }}
+          </button>
+        </ng-container>
       </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="sid-content">
+    <mat-toolbar class="page-header">
+      <button class="btn-toggle-navi" type="button" aria-label="Toggle sidenav" mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <h1 class="h1" *ngIf="g()"> {{currentGroup?.Name}}</h1>
+      <button *ngIf="g()" (click)="displayCalander()"><mat-icon>calendar_today</mat-icon></button>
+      <button *ngIf="g()" (click)="displaychat()"><mat-icon>chat</mat-icon></button>
+      <button *ngIf="g()" (click)="displayUserListOfGroup()" ><mat-icon>groups</mat-icon></button>
+   
+    </mat-toolbar>
+    <div class="content-wrapper">
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,4 +1,4 @@
-import {Component,ChangeDetectionStrategy,ViewChild,TemplateRef,OnInit, ChangeDetectorRef} from '@angular/core';
+import {Component,ChangeDetectionStrategy,ViewChild,TemplateRef,OnInit, ChangeDetectorRef, ViewEncapsulation} from '@angular/core';
 import {startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours,
 } from 'date-fns';
 import { Subject } from 'rxjs';
@@ -14,14 +14,13 @@ import { User } from '../DTO/MODELS/user.model';
 import RRule from 'rrule';
 import moment from 'moment-timezone/moment-timezone';
 import {
-  CalendarDayViewBeforeRenderEvent,
   CalendarEvent,
   CalendarMonthViewBeforeRenderEvent,
   CalendarView,
-  CalendarWeekViewBeforeRenderEvent,
 } from 'angular-calendar';
 import { ViewPeriod } from 'calendar-utils';
 import { take } from 'rxjs/operators';
+import { Group } from '../DTO/MODELS/group';
 interface RecurringEvent {
   title: string;
   color: any;
@@ -34,8 +33,8 @@ interface RecurringEvent {
 }
 
 const colors: any = {
-  red: {
-    primary: '#ad2121',
+  black: {
+    primary: '#000000',
     secondary: '#FAE3E3',
   },
   blue: {
@@ -46,10 +45,13 @@ const colors: any = {
     primary: '#e3bc08',
     secondary: '#FDF1BA',
   },
+ 
 };
 moment.tz.setDefault('Utc');
 @Component({
   selector: 'app-calander',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './calander.component.html',
   styleUrls: ['./calander.component.css']
 })
@@ -60,15 +62,29 @@ export class CalanderComponent implements OnInit{
   marryDate:Array<{date:Date, userName:string}>=new Array<{date:Date, userName:string}>()
   eventArray:Array<Events>=new Array<Events>()
   defultDate:string='0001-01-01T00:00:00'
-  constructor(private modal: NgbModal, private eventServise:EventsService,private groupService:GroupService,private cdr: ChangeDetectorRef) {}
-  
+  view: CalendarView = CalendarView.Month;
+  viewDate = moment().toDate();
+  constructor(private modal: NgbModal, private eventServise:EventsService,
+    private groupService:GroupService,private cdr: ChangeDetectorRef) {
+
+  }
+  currentGroup:Group; 
   ngOnInit(): void {
-  
+    this.currentGroup=this.groupService.currentGroup
+    this.getUsers()
    
-    this.GetEventByGRoup()
+  }
+  getUsers(){
+    if(this.groupService.currentGroup){
+      this.groupService.GetUsers(this.groupService.currentGroup.Id).subscribe(users=>{
+        this.users=users
+        console.log("???",this.users,users)
+        this.GetEventByGRoup()
     
-    console.log(this.marryDate)
-    this.refreshView()
+        console.log(this.marryDate)
+        this.refreshView()
+       })
+    }
   }
   refreshView(): void {
 
@@ -78,11 +94,11 @@ export class CalanderComponent implements OnInit{
 
 
 
-  view: CalendarView = CalendarView.Month;
+  // view: CalendarView = CalendarView.Month;
 
   CalendarView = CalendarView;
 
-  viewDate: Date = new Date();
+  // viewDate: Date = new Date();
 
   modalData: {
     action: string;
@@ -108,14 +124,13 @@ export class CalanderComponent implements OnInit{
   ];
 
   refresh: Subject<any> = new Subject();
-
   events: CalendarEvent[] = [];
   viewPeriod: ViewPeriod;
   recurringEvents: RecurringEvent[] = [
 
     {
       title: 'Recurs yearly on the 10th of the current month',
-      color: colors.blue,
+      color: colors.black,
       rrule: {
         freq: RRule.YEARLY,
         bymonth: moment().month() + 1,
@@ -126,38 +141,40 @@ export class CalanderComponent implements OnInit{
   ];
 
   activeDayIsOpen: boolean = true;
+  pushEvents(){
+    this.eventArray?.forEach(evt=>
+      {
+        this.events = [
+          ...this.events,
+          {
+            title: evt.Title,
+            start: startOfDay(new Date(evt.Date)),
+            color: colors.black
+  
+          },
+        ];
+   
+      }
+      )
+  }
+pushBirthdayMarryDate(){
 
-pushEvents(){
 
-
-  this.eventArray?.forEach(evt=>
-    {
-      this.events = [
-        ...this.events,
-        {
-          title: evt.Title,
-          start: startOfDay(new Date(evt.Date)),
-          color: colors.blue
-
-        },
-      ];
  
-    }
-    )
     console.log("the events",this.events)
     this.birthday.forEach(birth=>{
-    
+
       if(birth.date.toString()!=this.defultDate){
         this.recurringEvents = [
           ...this.recurringEvents,
        
           {
             title: 'Happy birthday to '+birth.userName,
-            color: colors.blue,
+            color: colors.black,
             rrule: {
               freq: RRule.YEARLY,
               bymonth:new Date(birth.date).getMonth()+1,
-              bymonthday: new Date(birth.date).getDay(),
+              bymonthday: new Date(birth.date).getDate()-1,
             },
           },
         ];
@@ -171,11 +188,11 @@ pushEvents(){
           ...this.recurringEvents,
           {
             title: 'Happy marry-date to '+marry.userName,
-            color: colors.blue,
+            color: colors.black,
             rrule: {
               freq: RRule.YEARLY,
               bymonth:new Date(marry.date).getMonth()+1,
-              bymonthday: new Date(marry.date).getDay(),
+              bymonthday: new Date(marry.date).getDate()-1,
             },
           }
         ];
@@ -253,7 +270,9 @@ pushEvents(){
     this.activeDayIsOpen = false;
   }
   GetBrithday()
-  {this.users?.forEach(user => {
+  {
+    console.log("this.users",this.users)
+    this.users?.forEach(user => {
     if(user.Birthday){
       this.birthday.push({date:user.Birthday,userName:user.UserName})
     }
@@ -272,10 +291,10 @@ pushEvents(){
     this.eventServise.getEvents(this.groupService.currentGroup.Id).pipe(take(1)).subscribe(res=>{
       this.eventArray=res
       console.log("before", this.eventArray)
-      this.users=this.groupService.users
+   
       this.GetmarryDate()
       this.GetBrithday()
-      // this.pushEvents()
+      this.pushBirthdayMarryDate()
       this.isLoaded=true
     }
      
@@ -285,17 +304,20 @@ pushEvents(){
   updateCalendarEvents(
     viewRender:
       | CalendarMonthViewBeforeRenderEvent
-      | CalendarWeekViewBeforeRenderEvent
-      | CalendarDayViewBeforeRenderEvent
+      // | CalendarWeekViewBeforeRenderEvent
+      // | CalendarDayViewBeforeRenderEvent
   ): void {
+    viewRender.body.forEach(d => {
+      d.cssClass = 'bg-pink';
+    });
     if (
       !this.viewPeriod ||
       !moment(this.viewPeriod.start).isSame(viewRender.period.start) ||
       !moment(this.viewPeriod.end).isSame(viewRender.period.end)
     ) {
       this.viewPeriod = viewRender.period;
-      // this.events = [];
-      
+      this.events = [];
+      this.pushEvents()
       this.recurringEvents.forEach((event) => {
         console.log("!!!!",event)
         const rule: RRule = new RRule({

@@ -14,6 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 export class AddGroupComponent implements OnInit {
   addGroupForm:FormGroup
   currentUser:User
+  url:string
   constructor(private groupService:GroupService,private fb:FormBuilder,private userService:UserService,private router:Router) { }
 
   ngOnInit(): void {
@@ -21,7 +22,26 @@ export class AddGroupComponent implements OnInit {
     this.addGroupForm=this.fb.group({
       Name: ["",[Validators.required]],
       UserId:[this.currentUser.Id,[Validators.required]],
+      Image: [""],
     })
+  }
+  onSelectFile(event) {
+
+    if (event.target.files && event.target.files[0]) {
+      let formData = new FormData();
+      formData.append('file', event.target.files[0]);
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]);
+
+      reader.onload = (event) => {
+        this.url = event.target.result as string
+
+
+        this.addGroupForm.get('Image').setValue(this.url)
+
+      }
+    }
   }
 AddGroup()
 { this.groupService.AddGroup(this.addGroupForm.value)

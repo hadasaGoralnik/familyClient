@@ -1,9 +1,9 @@
 <div class="dropdown">
-    <button class="users" type="button" data-toggle="dropdown">
+    <!-- <button class="users" type="button" data-toggle="dropdown"> -->
       
-        <span class="caret"></span><mat-icon>groups</mat-icon></button>
-    <ul class="dropdown-menu">
-        <li *ngFor="let user of users">
+        <!-- <span class="caret"></span><mat-icon>groups</mat-icon></button> -->
+    <div class="size">
+        <div *ngFor="let user of users">
             <img [src]="user.Image"  *ngIf="user.Image">
             <span class="circle-name" *ngIf="!user.Image">
                 {{FirstLetter(user.UserName)}}
@@ -11,8 +11,9 @@
             <span class="userName">{{user.FirstName}} {{user.LastName}}</span>
             <button class="clear" (click)="DeleteUserFromGroup(user.Id)"><mat-icon class="clear-icon">clear</mat-icon></button>
             <div class="dropdown-divider"></div>
-        </li>
+            </div>
         <div class="dropdown-divider"></div>
-        <li><button (click)="RouteToAddUser()"><mat-icon>person_add_alt_1</mat-icon>Add User</button></li>
-     </ul>
+        <div><button (click)="RouteToAddUser()"><mat-icon>person_add_alt_1</mat-icon>Add User</button></div>
+        </div>
 </div>
+

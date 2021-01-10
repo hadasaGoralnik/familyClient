@@ -17,9 +17,14 @@ import { User } from '../DTO/MODELS/user.model';
 })
 export class GroupService {
   currentGroup:Group
-  users:Array<User>
 
-  constructor(private http:HttpClient) { }
+
+  constructor(private http:HttpClient) { 
+  }
+
+  LogoutGroup(){
+this.currentGroup = undefined;
+  }
   GetGroups(request:GetGroupsRequest): Observable<any>{
     return this.http.get<GetGroupsRequest>(`https://localhost:44328/api/group/getGroups/${request.UserId}`);
   }

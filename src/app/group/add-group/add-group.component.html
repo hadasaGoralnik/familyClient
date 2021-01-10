@@ -5,7 +5,15 @@
         <mat-form-field class="full-width-input">
           <input matInput placeholder="Name" formControlName="Name" >
         </mat-form-field>
-             <button mat-raised-button color="primary" type="submit">Save</button>
+        <br>
+        <mat-form-field class="full-width-input">
+          <input type="file"
+                id="file"
+                (change)="onSelectFile($event)"  >
+                <input matInput class="invisible" name="fileHidden" formControlName="Image"/>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button  type="submit">Save</button>
       </form>
     </mat-card-content>
   </mat-card>

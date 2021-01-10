@@ -1,6 +1,6 @@
 .circle-name {
-    margin-left: 15%;
-    display:inline-block;
+
+ 
     font-size:2em;
     width:2.5em;
     height:2.5em;
@@ -9,9 +9,9 @@
     border-radius:50%;
     background:gray;
     vertical-align:middle;
-    margin-right:auto;
+
     color:white;
-    /* display: inline-block;*/
+    display: inline-block;
   }
   img{
  
@@ -19,22 +19,101 @@
     width:4em;
     height:4em;
     border-radius:50%;
-    margin-left: 15%;
+
 
   }
-
-  .hide {
-    display: none;
-
+  .container{
+    position: relative;
   }
-  
-  #user-name
-  { 
-    margin-left: 15%;
 
+
+ .toolbar-top{
+    display: block;
   }
-  .dropdown-menu{
-    z-index: -1;
-    position:relative;
+  .user{
+    margin-left: 25%;
+    display:inline-block;
   }
-  
+  #user-name{
+    text-align: center;
+  }
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 220px;
+
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-icon {
+  margin-left: 10px !important;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 60px;
+}
+
+.sid-content {
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.toolbar-top {
+  height: 51px !important;
+  padding: 5px 10px;
+}
+
+.content-wrapper {
+  margin: 20px;
+}
+
+.btn-nav-wrapper {
+  border-top: 0.1px solid white;
+  border-bottom: 0.1px solid white;
+}
+
+
+
+.btn-toggle-nav {
+  position: fixed;
+  top: 13px;
+}
+
+.profile-img {
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid purple;
+  margin-left: 4px;
+}
+
+.small-font {
+  font-size: 14px;
+}
+button:not(:disabled) {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;}
+.h1{
+  margin-left: 40%;
+  margin-right: 20%;
+  font-size: 132%;
+  }
+  .mat-toolbar {
+    background: #d2e6e7;}
+    

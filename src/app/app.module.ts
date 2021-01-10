@@ -24,6 +24,7 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { DisplayUserComponent } from './user/display-user/display-user.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
+import { DemoModule } from './calander/module';
 import { CreateMenuComponent } from './menu/create-menu/create-menu.component';
 import { UpdateMenuComponent } from './menu/update-menu/update-menu.component';
 @NgModule({
@@ -50,7 +51,7 @@ import { UpdateMenuComponent } from './menu/update-menu/update-menu.component';
        UpdateMenuComponent
   ],
   imports: [
-    // DemoModule,
+    DemoModule,
     MatrialModule,
     BrowserModule,
     FormsModule,

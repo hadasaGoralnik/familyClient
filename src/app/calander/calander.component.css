@@ -1,8 +1,41 @@
 h3 {
     margin: 0 0 10px;
   }
+
+  .cal-cell-row, .ng-star-inserted, .cal-days{
+    border-color: black !important; 
+  }
+  .cal-month-view .cal-day-number{
+    color:black !important;
+    opacity: 1;
+  }
+  .mat-h3, .mat-subheading-2, .mat-typography h3{
+    margin-top:-35% ;
+  }
+  .cal-month-view{
+    background-color: transparent !important;
+  }
   
   pre {
     background-color: #f5f5f5;
     padding: 15px;
+  }
+  
+  .btn-primary{
+     background-color: black;
+     border-color: black;
+
+  }
+  .cal-month-view .cal-open-day-events{
+    background-color: #fbd1d1;
+  }
+  .cal-month-view .cal-day-badge{
+    background-color: #f5b3b3;
+  }
+  .btn-primary:hover {
+    background-color: black;
+    border-color: black;}
+    .mat-h3, .mat-subheading-2, .mat-typography h3 {
+      margin-top: 1%;
+      font-size: large;
   }
