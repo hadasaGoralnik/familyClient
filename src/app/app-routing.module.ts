@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { EventDetailsComponent } from './event/event-details/event-details.component';
 import { ChatComponent } from './chat/chat.component';
 import { CalanderComponent } from './calander/calander.component';
+import { UserListOfGroupComponent } from './group/user-list-of-group/user-list-of-group.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,7 @@ const routes: Routes = [
   {path:'add-group',component:AddGroupComponent},
   {path:'display-group',component:DisplayGroupComponent},
   {path:'chat',component:ChatComponent},
-  {path:'UserListOfGroup',component: AddUserToGroupComponent},
+  {path:'UserListOfGroup',component: UserListOfGroupComponent},
   {path:'calander',component:CalanderComponent},
   {path:'add-user',component:AddUserToGroupComponent},
   {path:'update-user',component:UpdateUserComponent},

@@ -48,7 +48,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatListModule,
     MatCheckboxModule,
     MatListModule,
-    MatChipsModule
+    MatChipsModule,
     MatCarouselModule
   ]
 })
