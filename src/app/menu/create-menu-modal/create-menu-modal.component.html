@@ -1,0 +1,19 @@
+<form class="form-wrapper-modal-w" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <h1 *ngIf="!menuId; else newMenu">Create Menu</h1>
+    <ng-template #newMenu>
+        <h1>Update Menu</h1>
+   </ng-template>
+    <mat-form-field class="full-width-input">
+        <input matInput placeholder="MenuOrder" type="number" formControlName="MenuOrderNumber" required>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+        <input matInput placeholder="Name" formControlName="Name" required>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+        <input matInput placeholder="Quantity" type="number" formControlName="Quantity" required>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+        <input matInput placeholder="Cost" type="number" formControlName="Cost" required>
+    </mat-form-field>
+    <button type="submit" class="btn-deafult">Save</button>
+</form>

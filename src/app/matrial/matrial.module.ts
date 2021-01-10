@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 @NgModule({
   declarations: [],
   imports: [
@@ -30,7 +31,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatRadioModule,
     MatMenuModule,
     MatListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCarouselModule
   ],
   exports: [
     MatFormFieldModule,
@@ -47,6 +49,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatCheckboxModule,
     MatListModule,
     MatChipsModule
+    MatCarouselModule
   ]
 })
 export class MatrialModule { }

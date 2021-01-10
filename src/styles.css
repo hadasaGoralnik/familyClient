@@ -1,3 +1,65 @@
 @import"~@angular/material//prebuilt-themes/indigo-pink.css";
-html, body { height: 100%; }
+html, body { height: 100%;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
+    transform: none !important;
+}
+.form-wrapper-modal-w {
+    text-align: center;
+    margin: 0px auto!important;
+    background-color: #fff;
+    direction: ltr;
+    color: #1c799e !important;
+    flex-grow: 1;
+    position: relative;
+    font-size: 16px;
+    line-height: 28px;
+    z-index: 20000!important;
+}
+.mat-dialog-container {
+    background: white;
+    direction: rtl;
+    text-align: right;
+    padding: 20px !important;
+    max-width: 900px;
+}
+.form-wrapper-modal-w h1,
+.form-wrapper-modal h1 {
+    background-color: #565656;
+    color: white;
+    line-height: 60px;
+}
+.form-wrapper-modal-w .mat-form-field,
+.form-wrapper-modal-w section {
+    display: inline-block;
+    width: 220px;
+    margin: 0 20px;
+}
+
+.btn-deafult {
+    padding: 0px 20px;
+    font-size: 12px;
+    line-height: 24px;
+    padding-bottom: 0px;
+    margin: auto;
+    cursor: pointer;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #1c799e ;
+    color: #ffffff;
+    background-color:  #1c799e ;
+    transition: background-color .35s, opacity .35s;
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.btn-blue:disabled {
+    background-color: #ccc;
+    color: white;
+}
+.ngx-gallery-arrow-wrapper{
+    z-index: 1000!important;
+}

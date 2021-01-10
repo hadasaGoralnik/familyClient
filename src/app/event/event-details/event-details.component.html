@@ -1,46 +1,126 @@
 <div class="div1">
-    <img src="../../assets/menu.JPG">
     <div class="div-menu">
-        <p *ngFor="let item of menu">
-            {{item.User.FirstName}}-{{item.MenuOrderNumber}}-{{item.MenuOrderNumber}}-{{item.Quantity}}
-        </p>
+        <h2 *ngIf="Appetizer[0]">Appetizer:</h2>
+        <p *ngFor="let item of Appetizer">
+            <button mat-icon-button>
+                <mat-icon (click)="openDialog(item.Id)">description</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon (click)="deleteMenu(item.Id);">delete_sweep</mat-icon>
+            </button>
+            {{item.Name}}</p>
+        <h2 *ngIf="SecondDish[0]">Second dish:</h2>
+        <p *ngFor="let item of SecondDish">
+            <button mat-icon-button>
+                <mat-icon (click)="openDialog(item.Id)">description</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>delete_sweep</mat-icon>
+            </button>
+            {{item.Name}}</p>
+        <h2 *ngIf="SideDish[0]">Side dish:</h2>
+        <p *ngFor="let item of SideDish">
+            <button mat-icon-button>
+                <mat-icon (click)="openDialog(item.Id)">description</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>delete_sweep</mat-icon>
+            </button>{{item.Name}}</p>
+        <h2 *ngIf="MainDish[0]">Main dish:</h2>
+        <p *ngFor="let item of MainDish">
+            <button mat-icon-button>
+                <mat-icon (click)="openDialog(item.Id)">description</mat-icon>
+            </button> <button mat-icon-button>
+                <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>delete_sweep</mat-icon>
+            </button>{{item.Name}}</p>
+        <h2 *ngIf="Desserts[0]">Desserts:</h2>
+        <p *ngFor="let item of Desserts">
+            <button mat-icon-button>
+                <mat-icon (click)="openDialog(item.Id)">description</mat-icon>
+            </button> <button mat-icon-button>
+                <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>delete_sweep</mat-icon>
+            </button>{{item.Name}}</p>
+        <button mat-icon-button>
+            <mat-icon (click)="openModal1();">add_circle</mat-icon>
+        </button>
+    </div>
+    <ngx-gallery [options]="galleryOptions" class="pic" [images]="galleryImages"></ngx-gallery>
+    <div style="text-align: center;">
+        <button mat-icon-button (click)="fileInput.click()">
+            <mat-icon>add_photo_alternate</mat-icon>
+        </button>
+        <input type="file" #fileInput (change)="onFileSelect($event)" style="margin: auto;display:none;">
+    </div>
+    <div class="details" *ngIf="events.Title">
+        <mat-card class="event-card">
+            <mat-card-header style="display: block;">
+                <mat-card-title>{{events.Title}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                 
+                 <span> {{events.Date|date:'shortDate'}}</span>  
+                 <mat-icon>date_range</mat-icon>
+                </p>
+                <p>
+                  
+                    <span>   {{events.Date|date:'shortTime'}}</span>  
+                    <mat-icon>access_time</mat-icon>
+                </p>
+                <p>
+                
+                    <span>  {{events.Address}}-{{events.City}}</span> 
+                    <mat-icon>home</mat-icon> 
+                </p>
+                <p>
+                  
+                    <span> {{events.Description}}</span>  
+                    <mat-icon>description</mat-icon>
+                </p>
+                <p>
+                   <span>
+                    promoter:{{events.User.FirstName}}</span>
+                    <mat-icon>person</mat-icon>
+                </p>
+                <p>
+                   
+                   <span> comment:{{events.Comment}}</span>
+                    <mat-icon>question_answer</mat-icon>
+                </p>
+                <p>
+                    
+                   <span> Dairy/Fleshy:{{isDairyOrFleshy()}}</span>
+                    <mat-icon> local_cafe</mat-icon>
+                </p>
+                <p>
+                    
+                 <span> Repeat:{{isRepeat()}}</span>
+                    <mat-icon>replay</mat-icon>
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>
+                    <mat-icon (click)="openModal();">edit</mat-icon>
+                </button>
+                <button mat-button>
+                    <mat-icon>delete_sweep</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
     </div>
 </div>
-<mat-icon> local_dining</mat-icon>
-<mat-icon> restaurant</mat-icon>
-<mat-icon>add</mat-icon>
-<mat-icon>add_box</mat-icon>
-<mat-icon>add_circle</mat-icon>
-<mat-icon>add_circle_outline</mat-icon>
-<div class="details">
-    <mat-icon style=" left: 235px;
-    position: relative;
-    top: 20px;font-size: 35px;">calendar_today</mat-icon>
-    <h1 style="margin: 25px 210px 16px;">{{events.Title}}‏</h1>
-    <mat-icon>date_range</mat-icon>
-    <p>date:{{events.Date|date:'shortDate'}}</p>
-    <mat-icon>access_time</mat-icon>
-    <p>time:{{events.Date|date:'shortTime'}}</p>
-    <mat-icon>home</mat-icon>
-    <p>address:{{events.Address}}-{{events.City}}</p>
-    <mat-icon>description</mat-icon>
-    <p>description:{{events.Description}}</p>
-    <mat-icon>person</mat-icon>
-    <p>promoter:{{events.User.FirstName}}</p>
-    <mat-icon>question_answer</mat-icon>
-    <p>comment:{{events.Comment}}</p>
-    <mat-icon> local_cafe</mat-icon>
-    <p>Dairy/Fleshy:{{isDairyOrFleshy()}}</p>
-    <mat-icon>replay</mat-icon>
-    <p>Repeat:{{isRepeat()}}</p>
-    <mat-icon>edit</mat-icon>
-    <mat-icon>delete_sweep</mat-icon>
-    <mat-icon>mail</mat-icon>
-</div>
-<div>
-</div>
-<mat-icon> insert_photo</mat-icon>
-<mat-icon>add_photo_alternate</mat-icon>
-<input type="file"   (change)="onFileSelect($event)">
-<button (click)="uploadFile()">Upload</button>
-<img *ngFor="let item of pictures" width="200" height="200" src="https://localhost:44328/Images/{{item.Image}}" alt="{{item.Name}}">
