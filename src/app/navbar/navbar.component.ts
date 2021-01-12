@@ -5,6 +5,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { map, shareReplay } from 'rxjs/operators';
 import { UserService } from '../services/user.service';
+import { GroupService } from '../services/group.service';
+import { Group } from '../DTO/MODELS/group';
 
 @Component({
   selector: 'app-navbar',
@@ -13,10 +15,12 @@ import { UserService } from '../services/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(  private breakpointObserver: BreakpointObserver,
+  constructor(private breakpointObserver: BreakpointObserver,
     private router: Router,
-    private userService: UserService,) { }
-    currentPage: any;
+    private userService: UserService,
+    private groupService: GroupService) { }
+  currentPage: any;
+  display: boolean = false
   pages = [
     {
       route: '/login',
@@ -32,17 +36,17 @@ export class NavbarComponent implements OnInit {
       isLogin: true,
       unlimitedAccess: true
     },
-    
+
     {
       route: '/group-list',
       title: 'Group List',
-      icon:'groups',
-      viewMenuTab: false
+      icon: 'groups',
+      viewMenuTab: true
     },
     {
       route: '/add-group',
       title: 'Add Group',
-      icon:'groups',
+      icon: 'groups',
       viewMenuTab: false
     },
     {
@@ -59,6 +63,18 @@ export class NavbarComponent implements OnInit {
       viewMenuTab: false
     },
     {
+      route: '/calander',
+      title: 'calander',
+      icon: 'calendar_today',
+      viewMenuTab: false
+    },
+    {
+      route: '/UserListOfGroup',
+      title: 'UserListOfGroup',
+      icon: 'groups',
+      viewMenuTab: false
+    },
+    {
       route: '/user-group',
       title: 'User In Group',
       icon: 'group',
@@ -69,8 +85,10 @@ export class NavbarComponent implements OnInit {
       title: 'Chat',
       icon: 'group',
       viewMenuTab: false
+      
     },
   ];
+  currentGroup: Group;
   currentUser: User;
   userLoggedIn: boolean;
 
@@ -82,17 +100,19 @@ export class NavbarComponent implements OnInit {
     );
   ngOnInit(): void {
     this.userService.userSubject
-    .subscribe(login=>{
-     this.currentUser=login.user
-     this.userLoggedIn=login.isLoggedIn
-   })
+      .subscribe(login => {
+        this.currentUser = login.user
+        this.userLoggedIn = login.isLoggedIn
+      })
     this.subsribeToUrlNavigation();
 
   }
-
+  displayUser() {
+    this.display = !this.display
+  }
   subsribeToUrlNavigation() {
     this.router.events.subscribe((data: any) => {
-    
+   
       if (!data.url || data.url === '' || data.url === '/') return;
 
       const currentPage = this.pages.find((page) =>
@@ -100,12 +120,12 @@ export class NavbarComponent implements OnInit {
       );
 
       let isAccessableUrl = false;
-      
+
       if (currentPage.unlimitedAccess) {
         isAccessableUrl = true;
-      } 
+      }
       else if (this.userLoggedIn) {
-        isAccessableUrl =true;
+        isAccessableUrl = true;
       }
 
       if (isAccessableUrl) {
@@ -115,18 +135,34 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
-  FirstLetter(userId:string):string{
-    var name=userId.toUpperCase()
-    return name.substring(0,2)
+  FirstLetter(userId: string): string {
+    var name = userId.toUpperCase()
+    return name.substring(0, 2)
   }
-  logout() {  
-    this.userService.setUseLogin(false,this.currentUser);
-}
-Unsubscribe(){
-  console.log("DeleteUserFromGroup")
- this.userService.Unsubscribe({UserId:this.userService.currentUser.Id}).subscribe(user=>{
-this.logout()
-this.router.navigate(['']);
- })
-}
+  logout() {
+    this.userService.setUseLogin(false, this.currentUser);
+    this.groupService.LogoutGroup();
+  }
+
+  g(): boolean{
+    this.currentGroup=this.groupService.currentGroup;
+    return this.groupService.currentGroup !== undefined;
+  }
+
+  displayCalander() {
+    this.router.navigate(['/calander/']);
+  }
+  displaychat(){
+    this.router.navigate(['/chat/']);
+  }
+  displayUserListOfGroup(){
+    this.router.navigate(['/UserListOfGroup/']);
+  }
+  Unsubscribe() {
+    console.log("DeleteUserFromGroup")
+    this.userService.Unsubscribe({ UserId: this.userService.currentUser.Id }).subscribe(user => {
+      this.logout()
+      this.router.navigate(['']);
+    })
+  }
 }

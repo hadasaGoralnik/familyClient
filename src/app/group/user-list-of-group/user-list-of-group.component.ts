@@ -11,14 +11,15 @@ import { GroupService } from 'src/app/services/group.service';
 })
 export class UserListOfGroupComponent implements OnInit {
   users:Array<User>
-  constructor(private groupService:GroupService,private router:Router) { }
+  constructor(private groupService:GroupService,private router:Router) { 
+
+  }
 
   ngOnInit(): void {
     if(this.groupService.currentGroup){
       this.groupService.GetUsers(this.groupService.currentGroup.Id).subscribe(users=>{
         this.users=users
-        console.log(users)
-        console.log(this.users)
+
        })
     }
 

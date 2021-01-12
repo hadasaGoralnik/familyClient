@@ -11,14 +11,15 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DisplayUserComponent implements OnInit {
 currentUser:User
+defultDate:string='0001-01-01T00:00:00'
   constructor(private userService:UserService,private router:Router) { }
-
   ngOnInit(): void {
     this.currentUser=this.userService.currentUser
   }
   FirstLetter(userId:string):string{
     var name=userId.toUpperCase()
     return name.substring(0,2)
+    
   }
   Unsubscribe(){
     console.log("DeleteUserFromGroup")

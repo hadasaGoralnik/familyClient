@@ -1,5 +1,5 @@
 import { NgContentAst } from '@angular/compiler';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChatMessage } from '../DTO/MODELS/chat-message';
@@ -16,7 +16,7 @@ import { UserService } from '../services/user.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit ,OnDestroy{
 
   addChatMessageForm:FormGroup
   currentUser:User=new User();
@@ -30,6 +30,7 @@ export class ChatComponent implements OnInit {
    }
 
 ngOnInit() {
+  
   var self =this
     this.currentUser=this.userService.getCurrentUser()
     this.currentGroup=this.groupService.currentGroup
@@ -40,6 +41,7 @@ ngOnInit() {
       GroupId:[this.currentGroup.Id,[Validators.required]]
   
     })
+    this.chatService.connect(this.currentGroup?.Id,this.userService.getCurrentUser()?.Id)
     this.GetMessages()
     console.log(this.messages)
     var ws=this.chatService
@@ -92,13 +94,20 @@ GetMessages(){
 GetUserById(userId:number){
   this.userService.GetUserById(userId).subscribe(user=>{this.users[user.Id]=user})
 }
+send(){
+  this.chatService.websocket.send(JSON.stringify({UserId:this.userService.getCurrentUser().Id,GroupId:this.currentGroup.Id,msg:"hhhh"}))
+}
 FirstLetter(userId:string):string{
-  var name=userId.toUpperCase()
-  return name.substring(0,2)
+  var name=userId?.toUpperCase()
+  return name?.substring(0,2)
 }
 get Body() { return this.addChatMessageForm.get('Body'); }
-
+ngOnDestroy(): void {
+  this.chatService.websocket?.close();
+}
 
 }
+
+
 
 

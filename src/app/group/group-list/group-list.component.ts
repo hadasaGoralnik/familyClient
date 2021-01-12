@@ -13,6 +13,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./group-list.component.css']
 })
 export class GroupListComponent implements OnInit {
+  selectable = true;
+  removable = true;
   currentUser:User
   groups:Array<Group>
   constructor(private groupService:GroupService,private userService:UserService,private router:Router) { }
@@ -29,8 +31,9 @@ export class GroupListComponent implements OnInit {
   }
 )
   }
+
   addGroup(){
-      this.router.navigate(['/add-group'] );
+      this.router.navigate(['/add-group/'] );
   }
   deleteGroup(groupId:number){
     alert("Are you sure you want to delete the entire group?");
@@ -43,7 +46,8 @@ export class GroupListComponent implements OnInit {
   }
   routeToDisplatGroup(group:Group){
     this.groupService.currentGroup=group
-    this.router.navigate(['/display-group'] );
+    
+    this.router.navigate(['/display-group/'] );
   }
 }
 

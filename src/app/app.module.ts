@@ -22,6 +22,7 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { DisplayUserComponent } from './user/display-user/display-user.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
+import { DemoModule } from './calander/module';
 import { CreateEventModalComponent } from './event/create-event-modal/create-event-modal.component';
 import { NgxGalleryModule } from 'ngx-gallery-9';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -55,6 +56,7 @@ import { CreateUserModalComponent } from './user/create-user-modal/create-user-m
        CreateUserModalComponent,
   ],
   imports: [
+    DemoModule,
     NgxGalleryModule,
     MatrialModule,
     BrowserModule,
