@@ -24,8 +24,7 @@ const routes: Routes = [
   {path:'update-user',component:UpdateUserComponent},
   {path:'display-user',component:DisplayUserComponent},
   {path:'event/:id',component:EventDetailsComponent},
-  {path:'events',component:EventsComponent,pathMatch: "full"
-},
+  {path:'events',component:EventsComponent,pathMatch: "full"},
   {path:'',component:HomeComponent}
  ];
  

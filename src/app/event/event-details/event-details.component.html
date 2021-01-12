@@ -11,7 +11,8 @@
             <button mat-icon-button>
                 <mat-icon (click)="deleteMenu(item.Id);">delete_sweep</mat-icon>
             </button>
-            {{item.Name}}</p>
+            {{item.Name}}
+        </p>
         <h2 *ngIf="SecondDish[0]">Second dish:</h2>
         <p *ngFor="let item of SecondDish">
             <button mat-icon-button>
@@ -21,9 +22,10 @@
                 <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
             </button>
             <button mat-icon-button>
-                <mat-icon>delete_sweep</mat-icon>
+                <mat-icon (click)="deleteMenu(item.Id);">delete_sweep</mat-icon>
             </button>
-            {{item.Name}}</p>
+            {{item.Name}}
+        </p>
         <h2 *ngIf="SideDish[0]">Side dish:</h2>
         <p *ngFor="let item of SideDish">
             <button mat-icon-button>
@@ -33,8 +35,9 @@
                 <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
             </button>
             <button mat-icon-button>
-                <mat-icon>delete_sweep</mat-icon>
-            </button>{{item.Name}}</p>
+                <mat-icon (click)="deleteMenu(item.Id);">delete_sweep</mat-icon>
+            </button>{{item.Name}}
+        </p>
         <h2 *ngIf="MainDish[0]">Main dish:</h2>
         <p *ngFor="let item of MainDish">
             <button mat-icon-button>
@@ -43,8 +46,9 @@
                 <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
             </button>
             <button mat-icon-button>
-                <mat-icon>delete_sweep</mat-icon>
-            </button>{{item.Name}}</p>
+                <mat-icon (click)="deleteMenu(item.Id);">delete_sweep</mat-icon>
+            </button>{{item.Name}}
+        </p>
         <h2 *ngIf="Desserts[0]">Desserts:</h2>
         <p *ngFor="let item of Desserts">
             <button mat-icon-button>
@@ -53,8 +57,9 @@
                 <mat-icon (click)="openModal1(item.Id);">edit</mat-icon>
             </button>
             <button mat-icon-button>
-                <mat-icon>delete_sweep</mat-icon>
-            </button>{{item.Name}}</p>
+                <mat-icon (click)="deleteMenu(item.Id);">delete_sweep</mat-icon>
+            </button>{{item.Name}}
+        </p>
         <button mat-icon-button>
             <mat-icon (click)="openModal1();">add_circle</mat-icon>
         </button>
@@ -73,43 +78,43 @@
             </mat-card-header>
             <mat-card-content>
                 <p>
-                 
-                 <span> {{events.Date|date:'shortDate'}}</span>  
-                 <mat-icon>date_range</mat-icon>
+
+                    <span> {{events.Date|date:'shortDate'}}</span>
+                    <mat-icon>date_range</mat-icon>
                 </p>
                 <p>
-                  
-                    <span>   {{events.Date|date:'shortTime'}}</span>  
+
+                    <span> {{events.Date|date:'shortTime'}}</span>
                     <mat-icon>access_time</mat-icon>
                 </p>
                 <p>
-                
-                    <span>  {{events.Address}}-{{events.City}}</span> 
-                    <mat-icon>home</mat-icon> 
+
+                    <span> {{events.Address}}-{{events.City}}</span>
+                    <mat-icon>home</mat-icon>
                 </p>
                 <p>
-                  
-                    <span> {{events.Description}}</span>  
+
+                    <span> {{events.Description}}</span>
                     <mat-icon>description</mat-icon>
                 </p>
                 <p>
-                   <span>
-                    promoter:{{events.User.FirstName}}</span>
+                    <span>
+                        promoter:{{events.User.FirstName}}</span>
                     <mat-icon>person</mat-icon>
                 </p>
                 <p>
-                   
-                   <span> comment:{{events.Comment}}</span>
+
+                    <span> comment:{{events.Comment}}</span>
                     <mat-icon>question_answer</mat-icon>
                 </p>
                 <p>
-                    
-                   <span> Dairy/Fleshy:{{isDairyOrFleshy()}}</span>
+
+                    <span> Dairy/Fleshy:{{isDairyOrFleshy()}}</span>
                     <mat-icon> local_cafe</mat-icon>
                 </p>
                 <p>
-                    
-                 <span> Repeat:{{isRepeat()}}</span>
+
+                    <span> Repeat:{{isRepeat()}}</span>
                     <mat-icon>replay</mat-icon>
                 </p>
             </mat-card-content>
@@ -117,8 +122,8 @@
                 <button mat-button>
                     <mat-icon (click)="openModal();">edit</mat-icon>
                 </button>
-                <button mat-button>
-                    <mat-icon>delete_sweep</mat-icon>
+                <button mat-icon-button>
+                    <mat-icon (click)="deleteEvent();">delete_sweep</mat-icon>
                 </button>
             </mat-card-actions>
         </mat-card>

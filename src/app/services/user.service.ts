@@ -30,6 +30,10 @@ export class UserService {
   }
 
   getCurrentUser() {
+    if(this.currentUser == null && localStorage.getItem('user'))
+    {
+     return <User> JSON.parse( localStorage.getItem('user'));
+    }
     return this.currentUser;
   }
 

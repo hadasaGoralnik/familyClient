@@ -7,20 +7,20 @@ import { Menu } from '../DTO/MODELS/menu';
   providedIn: 'root'
 })
 export class MenuService {
-
-  constructor(public http: HttpClient) { }
-  push(menu:Menu):Observable<Menu> 
-  {
-    return this.http.post<Menu>('http://localhost:44328/api/menu/CreateMenu',menu);
+  Delete(menuId: number):Observable<Menu> {
+    return this.http.delete<Menu>('https://localhost:44328/api/menu/DeleteMenu/'+menuId);
   }
-  GetMenusEventId(id:number): Observable<Menu[]>{
+  constructor(public http: HttpClient) { }
+  push(menu: Menu): Observable<Menu> {
+    return this.http.post<Menu>('https://localhost:44328/api/menu/CreateMenu', menu);
+  }
+  GetMenusEventId(id: number): Observable<Menu[]> {
     return this.http.get<Menu[]>(`https://localhost:44328/api/menu/GetMenusByEventId/${id}`);
   }
-  GetMenuByMenuId(id:number) :Observable<Menu>{
-    return this.http.get<Menu>(`https://localhost:44328/api/menu/GetMenuByMenuId/${id}`)
+  GetMenuByMenuId(id: number): Observable<Menu> {
+      return this.http.get<Menu>(`https://localhost:44328/api/menu/GetMenuByMenuId/${id}`);
   }
-  update(menu:Menu):Observable<Menu> 
-  {
-    return this.http.put<Menu>('http://localhost:44328/api/menu/UpdateMenu',menu);
+  update(menu: Menu): Observable<Menu> {
+    return this.http.put<Menu>('https://localhost:44328/api/menu/UpdateMenu', menu);
   }
 }
