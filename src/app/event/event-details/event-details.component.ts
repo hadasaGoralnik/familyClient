@@ -13,9 +13,10 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 import 'hammerjs';
 import { CreateMenuModalComponent } from 'src/app/menu/create-menu-modal/create-menu-modal.component';
 import { MenuDetailsDailogComponent } from 'src/app/menu/menu-details-dailog/menu-details-dailog.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { NumberValueAccessor } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -45,10 +46,10 @@ export class EventDetailsComponent implements OnInit {
   isDairy = true;
   menuId: number;
   eventId: number;
-  currentUser: User;
+  currentUser: User = this.UserService.getCurrentUser();
 
   constructor(private eventService: EventsService, private menuService: MenuService,
-    public dialog: MatDialog, private activatedRoute: ActivatedRoute, private UserService: UserService) {
+    public dialog: MatDialog, private activatedRoute: ActivatedRoute, private UserService: UserService, private route: Router) {
   }
 
   ngOnInit(): void {
@@ -111,20 +112,11 @@ export class EventDetailsComponent implements OnInit {
       });
     });
   }
-  getPicture() {
-    this.eventService.GetPicturesByEventId(this.eventId).subscribe(x => {
-      this.pictures = x;
-      this.galleryImages.push({
-        small: 'https://localhost:44328/Images/' + this.pictures[this.index].Image,
-        medium: 'https://localhost:44328/Images/' + this.pictures[this.index].Image,
-        big: 'https://localhost:44328/Images/' + this.pictures[this.index].Image,
-      });
-      this.index++;
-    });
-  }
   uploadFile() {
     this.eventService.uploadImage(this.imageFile, this.eventId).subscribe(x => {
-      this.getPicture();
+      this.galleryImages = [];
+      this.pictures = [];
+      this.getPictures();
     });
 
   }
@@ -179,10 +171,54 @@ export class EventDetailsComponent implements OnInit {
     });
 
   }
-  getSingleMenu() {
-    this.menuService.GetMenuByMenuId(this.menuId).subscribe(x => {
+  getSingleMenu(menuId: number) {
+    this.menuService.GetMenuByMenuId(menuId).subscribe(x => {
       this.singleMenu = x;
+    }, (err => {
+      Swal.fire('Opss...', '):Something went Worng', 'error');
+    }));
+  }
+  deleteMenu(menuId: number) {
+    Swal.fire({
+      html: 'Are you sure that you want to delete?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value){
+    this.menuService.GetMenuByMenuId(menuId).subscribe(x => {
+      if (this.currentUser.Id == x.VolunteerId)
+        this.menuService.Delete(menuId).subscribe(x => {
+          if (x) {
+            Swal.fire('Success', 'the menu was deleted sucessfully', 'success')
+            this.Appetizer = [];
+            this.SecondDish = [];
+            this.SideDish = [];
+            this.MainDish = [];
+            this.Desserts = [];
+            this.getMenus();
+          }
+        }, (err => {
+          Swal.fire('Opss...', '):Something went Worng', 'error');
+        }));
+      else
+        Swal.fire('Worng', 'you have no access permission', 'warning');
+    }, (err => {
+      Swal.fire('Opss...', '):Something went Worng', 'error');
+    }));
+    }})
+ this.afterDelete();
+  }
+  afterDelete(){
 
+}
+  openDialog(menuId: number) {
+    const dialogRef = this.dialog.open(MenuDetailsDailogComponent, {
+      data: { Id: menuId }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
   }
   openModal() {
@@ -196,27 +232,43 @@ export class EventDetailsComponent implements OnInit {
     });
 
   }
-  deleteMenu(menuId: number){
-    
-  }
-  openDialog(menuId?: number) {
-    const dialogRef = this.dialog.open(MenuDetailsDailogComponent, {
-      data: { Id: menuId }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
   openModal1(menuId?: number) {
-
+    this.menuId = menuId;
     const dialogRef = this.dialog.open(CreateMenuModalComponent, {
       data: { Id: menuId },
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
-      this.getSingleMenu();
+      this.Appetizer = [];
+      this.SecondDish = [];
+      this.SideDish = [];
+      this.MainDish = [];
+      this.Desserts = [];
+      this.getMenus();
     });
-
   }
-
+  deleteEvent() {
+    Swal.fire({
+      html: 'Are you sure that you want to delete?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        if (this.currentUser.Id == this.events.Promoter)
+          this.eventService.Delete(this.eventId).subscribe(x => {
+            if (x) {
+              Swal.fire('Success', 'the menu was deleted sucessfully', 'success')
+              this.route.navigateByUrl("display-group");
+            }
+          }, (err => {
+            Swal.fire('Opss...', '):Something went Worng', 'error');
+          }));
+        else
+          Swal.fire('Worng', 'you have no access permission', 'warning');
+      }
+    }
+    );
+  }
 }

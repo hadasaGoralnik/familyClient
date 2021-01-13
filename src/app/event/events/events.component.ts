@@ -4,6 +4,9 @@ import { EventsService } from '../../services/events.service';
 import { CreateEventModalComponent } from '../create-event-modal/create-event-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GroupService } from 'src/app/services/group.service';
+import Swal from 'sweetalert2';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/DTO/MODELS/user.model';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -14,10 +17,13 @@ export class EventsComponent implements OnInit {
   events: Events[] = [];
   event:Events[]=[];
   eventId:number;
-  constructor(private eventService: EventsService,public dialog: MatDialog,private GroupService:GroupService) { }
+  event1:Events;
+  currentUser:User;
+  constructor(private eventService: EventsService,public dialog: MatDialog,private GroupService:GroupService,private UserService:UserService) { }
 
   ngOnInit(): void {
     this.groupId=this.GroupService.currentGroup.Id;
+    this.currentUser=this.UserService.getCurrentUser();
     this.get();
   }
   get(){
@@ -35,4 +41,5 @@ export class EventsComponent implements OnInit {
       this.get();
     });
   }
+
 }

@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 import { GroupService } from 'src/app/services/group.service';
 import { User } from 'src/app/DTO/MODELS/user.model';
 import { Group } from 'src/app/DTO/MODELS/group';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-create-event-modal',
   templateUrl: './create-event-modal.component.html',
@@ -46,8 +47,8 @@ export class CreateEventModalComponent implements OnInit {
       EventKindId: ["", [Validators.required]],
       Promoter: [this.currentUser.Id, [Validators.required]],
       GroupId: [this.currentGroup.Id, [Validators.required]],
-      IsDairy:[true,[]],
-      Repeat:["1",[]],
+      IsDairy: [true, []],
+      Repeat: ["1", []],
     })
     this.EventService.GetAllEventsKind().subscribe(x => {
       this.ArreventsKind = x;
@@ -68,14 +69,22 @@ export class CreateEventModalComponent implements OnInit {
     if (this.eventId)
       if (this.currentUser.Id == this.event.Promoter)
         this.EventService.update(eventFormData).subscribe((x) => {
-          console.log(x);
-        });
-      else;
+          if (x) {
+            Swal.fire('Success', 'the event was saved sucessfully', 'success')
+          }
+        },(err => {
+          Swal.fire('Opss...', '):Something went Worng', 'error');
+        }));
       else
-        this.EventService.push(eventFormData).subscribe((x) => {
-          console.log(x);
-          this
-        });
+        Swal.fire('Worng', 'you have no access permission', 'warning');
+    else
+      this.EventService.push(eventFormData).subscribe((x) => {
+        if (x) {
+          Swal.fire('Success', 'the event was saved sucessfully', 'success')
+        }
+      }, (err => {
+        Swal.fire('Opss...', '):Something went Worng', 'error');
+      }));
   }
 }
 

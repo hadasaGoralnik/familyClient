@@ -28,6 +28,7 @@ myForm: FormGroup;
       this.userService.login(this.myForm.value)
         .subscribe(
           (user: User) => {
+          localStorage.setItem('user',JSON.stringify(user));
             this.userService.setUseLogin(true, user);
            console.log("User:",this.userService.getCurrentUser(),"IsLogedIn",this.userService.isLogedIn)
            this.router.navigate(['/group-list/']);

@@ -1,0 +1,43 @@
+<mat-card>
+    <mat-card-content>
+      <form [formGroup]="myForm" (submit)="save()">
+        <h2>Sign Up</h2>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="UserName" formControlName="UserName" >
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="Password" formControlName="Password">
+        </mat-form-field>
+      
+        <mat-form-field class="full-width-input">
+          <input matInput  placeholder="FirstName" formControlName="FirstName" >
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput  placeholder="LastName"formControlName="LastName">
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput  placeholder="Mail"formControlName="Mail">
+        </mat-form-field>
+        <mat-radio-group formControlName="IsMale">
+          <mat-label>Gender:</mat-label>&nbsp;
+          <mat-radio-button color="primary" value="male">Male</mat-radio-button
+          >&nbsp;
+          <mat-radio-button color="primary" value="female">Female</mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field class="full-width-input">
+          <input matInput type="date"  placeholder="Birthday"formControlName="Birthday">
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="date"  placeholder="MarryDate"formControlName="MarryDate">
+        </mat-form-field>
+        <img [src]="url">
+        <mat-form-field class="full-width-input">
+          <input type="file"
+                id="file"
+                (change)="onSelectFile($event)"  >
+                <input matInput class="invisible" name="fileHidden" formControlName="Image"/>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Subscribe</button>
+      </form>
+    </mat-card-content>
+  </mat-card>

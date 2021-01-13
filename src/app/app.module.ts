@@ -29,6 +29,8 @@ import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/materia
 import { CreateMenuModalComponent } from './menu/create-menu-modal/create-menu-modal.component';
 import { MenuDetailsDailogComponent } from './menu/menu-details-dailog/menu-details-dailog.component';
 import { HeaderComponent } from './header/header.component';
+import { CreateUserModalComponent } from './user/create-user-modal/create-user-modal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,8 @@ import { HeaderComponent } from './header/header.component';
        CreateEventModalComponent,
        CreateMenuModalComponent,
        MenuDetailsDailogComponent,
-       HeaderComponent
+       HeaderComponent,
+       CreateUserModalComponent,
   ],
   imports: [
     DemoModule,

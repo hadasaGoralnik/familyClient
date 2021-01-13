@@ -9,9 +9,13 @@ import { Picture } from '../DTO/MODELS/picture';
   providedIn: 'root'
 })
 export class EventsService {
+
   currentEventId:number;
   constructor(public http: HttpClient) {
 
+  }
+  Delete(id: number): Observable<Events>{
+    return this.http.delete<Events>(`https://localhost:44328/api/events/DeleteEvent/${id}`)
   }
   getEvents(groupId: number): Observable<Events[]> {
     return this.http.get<Events[]>(`https://localhost:44328/api/events/getEventsByGroupId/${groupId}`)
