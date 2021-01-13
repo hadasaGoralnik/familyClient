@@ -6,10 +6,9 @@
     text-align: center;
     } 
     
-input[type="button"] { outline: none !important; box-shadow: none !important; } 
-button{
-    background:none!important ;
-    border:none!important;
+.icon:hover{
+  color: rgb(65, 77, 92);
+  cursor: pointer;
 }
 .icon{
     font-size: 50px !important;
@@ -27,7 +26,7 @@ button{
     background-position: center;
     background-color: #e5e5e5;
     border: none;
-    cursor: default;
+    cursor: pointer;
     height: 100px;
     outline: none;
     font-size:25px;
@@ -52,7 +51,7 @@ button{
   
  }
  .chip-svg{
-    color: #999999;
+    color: #000000;
     cursor: pointer;
     height: auto;
     margin: 4px 4px 0 -8px;

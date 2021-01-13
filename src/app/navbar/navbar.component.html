@@ -6,10 +6,10 @@
       <div class="user" *ngIf="userLoggedIn">
         <br>
         <div class="container">
-          <div class="circle-name" *ngIf="!currentUser.Image" (click)="displayUser()">
+          <div class="circle-name" *ngIf="!currentUser.Image" (click)="displayUser()"  matTooltip="displayUser" >
             {{FirstLetter(currentUser.UserName)}}
           </div>
-          <img [src]="currentUser.Image" class="circle-image" *ngIf="currentUser.Image" (click)="displayUser()">
+          <img [src]="currentUser.Image" class="circle-image" *ngIf="currentUser.Image" (click)="displayUser()"matTooltip="displayUser">
         </div>
 
 
@@ -44,10 +44,10 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <h1 class="h1" *ngIf="g()"> {{currentGroup?.Name}}</h1>
-      <button *ngIf="g()" (click)="displayCalander()"><mat-icon>calendar_today</mat-icon></button>
-      <button *ngIf="g()" (click)="displaychat()"><mat-icon>chat</mat-icon></button>
-      <button *ngIf="g()" (click)="displayUserListOfGroup()" ><mat-icon>groups</mat-icon></button>
-   
+      <button *ngIf="g()" (click)="displayUserListOfGroup()" ><mat-icon matTooltip="users">perm_contact_calendar</mat-icon></button>
+      <button *ngIf="g()" (click)="displayCalander()"><mat-icon matTooltip="calendar">calendar_today</mat-icon></button>
+      <button *ngIf="g()" (click)="displayEvents()" ><mat-icon matTooltip="events">description</mat-icon></button>
+      <button *ngIf="g()" (click)="displaychat()"><mat-icon matTooltip="chat">chat</mat-icon></button>
     </mat-toolbar>
     <div class="content-wrapper">
       <ng-content></ng-content>

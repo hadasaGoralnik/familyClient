@@ -21,6 +21,7 @@ import {
 import { ViewPeriod } from 'calendar-utils';
 import { take } from 'rxjs/operators';
 import { Group } from '../DTO/MODELS/group';
+import { ICON_REGISTRY_PROVIDER_FACTORY } from '@angular/material/icon';
 interface RecurringEvent {
   title: string;
   color: any;
@@ -33,17 +34,17 @@ interface RecurringEvent {
 }
 
 const colors: any = {
-  black: {
-    primary: '#000000',
-    secondary: '#FAE3E3',
+  pink: {
+    primary: 'rgb(255 180 223)',
+    secondary: 'rgb(255 180 223)',
+  },
+  purple: {
+    primary: 'rgb(210 138 209)',
+    secondary: 'rgb(210 138 209)',
   },
   blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF',
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA',
+    primary: 'rgb(171 196 247)',
+    secondary: 'rgb(171 196 247)',
   },
  
 };
@@ -128,15 +129,15 @@ export class CalanderComponent implements OnInit{
   viewPeriod: ViewPeriod;
   recurringEvents: RecurringEvent[] = [
 
-    {
-      title: 'Recurs yearly on the 10th of the current month',
-      color: colors.black,
-      rrule: {
-        freq: RRule.YEARLY,
-        bymonth: moment().month() + 1,
-        bymonthday: 10,
-      },
-    },
+    // {
+    //   title: 'Recurs yearly on the 10th of the current month',
+    //   color: colors.blue,
+    //   rrule: {
+    //     freq: RRule.YEARLY,
+    //     bymonth: moment().month() + 1,
+    //     bymonthday: 10,
+    //   },
+    // },
 
   ];
 
@@ -149,7 +150,7 @@ export class CalanderComponent implements OnInit{
           {
             title: evt.Title,
             start: startOfDay(new Date(evt.Date)),
-            color: colors.black
+            color: colors.purple
   
           },
         ];
@@ -169,8 +170,8 @@ pushBirthdayMarryDate(){
           ...this.recurringEvents,
        
           {
-            title: 'Happy birthday to '+birth.userName,
-            color: colors.black,
+            title: 'Happy birthday to '+birth.userName +'🎈',
+            color: colors.pink,
             rrule: {
               freq: RRule.YEARLY,
               bymonth:new Date(birth.date).getMonth()+1,
@@ -187,8 +188,8 @@ pushBirthdayMarryDate(){
         this.recurringEvents = [
           ...this.recurringEvents,
           {
-            title: 'Happy marry-date to '+marry.userName,
-            color: colors.black,
+            title: 'Happy marry-date to '+marry.userName+'🖤',
+            color: colors.blue,
             rrule: {
               freq: RRule.YEARLY,
               bymonth:new Date(marry.date).getMonth()+1,

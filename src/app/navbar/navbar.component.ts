@@ -63,6 +63,12 @@ export class NavbarComponent implements OnInit {
       viewMenuTab: false
     },
     {
+      route: '/events',
+      title: 'events',
+      icon: 'events',
+      viewMenuTab: false
+    },
+    {
       route: '/calander',
       title: 'calander',
       icon: 'calendar_today',
@@ -157,6 +163,9 @@ export class NavbarComponent implements OnInit {
   }
   displayUserListOfGroup(){
     this.router.navigate(['/UserListOfGroup/']);
+  }
+  displayEvents(){
+    this.router.navigate(['/events/']);
   }
   Unsubscribe() {
     console.log("DeleteUserFromGroup")

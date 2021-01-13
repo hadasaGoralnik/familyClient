@@ -13,11 +13,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import {MatTableModule} from '@angular/material/table';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [],
   imports: [
+    MatTooltipModule,
+    MatTableModule,
     CommonModule,
     MatChipsModule,
     MatButtonModule,
@@ -35,6 +38,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatCarouselModule
   ],
   exports: [
+    MatTableModule,
     MatFormFieldModule,
     MatButtonModule,
     MatCardModule,
@@ -49,7 +53,8 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatCheckboxModule,
     MatListModule,
     MatChipsModule,
-    MatCarouselModule
+    MatCarouselModule,
+    MatTooltipModule
   ]
 })
 export class MatrialModule { }

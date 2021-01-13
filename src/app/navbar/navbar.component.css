@@ -7,15 +7,15 @@
     line-height:2.5em;
     text-align:center;
     border-radius:50%;
-    background:gray;
+    background:#e6a398;
     vertical-align:middle;
-
+    cursor: pointer;
     color:white;
     display: inline-block;
   }
   img{
  
- 
+    cursor: pointer;
     width:4em;
     height:4em;
     border-radius:50%;
@@ -80,8 +80,8 @@
 }
 
 .btn-nav-wrapper {
-  border-top: 0.1px solid white;
-  border-bottom: 0.1px solid white;
+  border-top: 0.1px solid#fafafa;
+  border-bottom: 0.1px solid#fafafa;
 }
 
 
@@ -91,7 +91,7 @@
   top: 13px;
 }
 
-.profile-img {
+/* .profile-img {
   width: 30px;
   height: 30px;
   background-position: center;
@@ -100,7 +100,7 @@
   border-radius: 50%;
   border: 1px solid purple;
   margin-left: 4px;
-}
+} */
 
 .small-font {
   font-size: 14px;
@@ -116,4 +116,4 @@ button:not(:disabled) {
   }
   .mat-toolbar {
     background: #d2e6e7;}
-    
+  .mat-drawer { background-color: #fafafa;}
