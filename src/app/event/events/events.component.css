@@ -5,10 +5,11 @@
     height: 100%;
 }
 mat-card {
-    max-width: 400px;
+  max-width: 395px;
     text-align: center;
     margin: auto;
-    max-height: 498px;
+    margin-top: 0%;
+    max-height: 473px;
     overflow-y: auto;
     position: relative;
     height: 100%;

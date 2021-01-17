@@ -38,7 +38,7 @@ this.currentGroup=this.groupService.currentGroup
     .subscribe(x=>{
       console.log(x);
       alert("User Added to group")
-      this.router.navigate(['/display-group/'])
+      this.router.navigate(['/UserListOfGroup/'])
     })}
     get GroupId() { return this.myForm.get('GroupId'); }
     get UserSender() { return this.myForm.get('UserSender'); }

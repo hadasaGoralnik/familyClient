@@ -1,4 +1,4 @@
-.dropdown{
+/* .dropdown{
     left: 20%;
 }
 .users{
@@ -6,7 +6,7 @@
     width:3.7em;
     height:3.7em; 
     border-radius:50%;
-}
+} */
 button{
     background:none;
     border:none;
@@ -16,27 +16,30 @@ button{
 .userName{
     width: 90%;
     margin-right: 66px;
+    margin-top: -35px;
+    font-size: 115%;
 }
 img{
  
-    width: 2em;
-    height: 2em;
-    border-radius:50%;
-    margin-right: 5px;
+  margin-right: 5px;
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  margin-top: -12px;
 
   }
   .circle-name {
  
-    display: inline-block;
-    font-size: 1em;
-    width: 2em;
-    height: 2em;
-    line-height: 28px;
+    font-size: 14px;
+    line-height: 35px;
     text-align: center;
     border-radius: 50%;
-    background:#e6a398;
+    background: #e6a398;
     vertical-align: middle;
-    margin-right: 5px;
+    margin-right: 10px;
+    margin-top: -12px;
+    padding: 6px;
+    width: 49px;
     color: white;
     /* display: inline-block;*/
   }
@@ -47,17 +50,44 @@ img{
   }
   .clear-icon{
     font-size: 17px;
+    margin-left: 296px;
   }
-  h1{
+  /* h1{
       text-align: center;
-  }
-  .dropdown-divider{
+  } */
+  /* .dropdown-divider{
     width: 20%;
     height: 0;
     margin: .5rem 0;
     overflow: hidden;
     border-top: 1px solid #000000;
-  }
-  .size{
+  } */
+  /* .size{
     margin-left:-19% !important ;
+  } */
+  .card{
+    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+}
+mat-card {
+  max-width: 395px;
+    text-align: center;
+    margin: auto;
+    margin-top: 0%;
+    max-height: 473px;
+    overflow-y: auto;
+    position: relative;
+    height: 100%;
   }
+  .mat-typography p{
+    font-size: 20px;
+  line-height: 20px;
+  }
+  /* .btn-deafult{
+    background-color: #fbd1d1;
+  }
+  .mat-typography p {
+    margin: 0 0 12px;
+    margin-top: -38px !important;} */

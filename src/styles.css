@@ -9,7 +9,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: 0px auto!important;
     background-color: #fff;
     direction: ltr;
-    color: #1c799e !important;
+    color: #fbd1d1 !important;
     flex-grow: 1;
     position: relative;
     font-size: 16px;
@@ -47,9 +47,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border: 1px solid #1c799e ;
+    border: 1px solid #fbd1d1 ;
     color: #ffffff;
-    background-color:  #1c799e ;
+    background-color:  #fbd1d1 ;
     transition: background-color .35s, opacity .35s;
     border-radius: 15px;
     text-transform: uppercase;

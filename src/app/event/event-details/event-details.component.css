@@ -2,14 +2,16 @@
     height: 100%;
     position: relative;
     top: 0;
-    width: 50%;
+    width: 42.7%;
     max-height: 500px;
     overflow-y: auto;
     max-width: 358px;
     padding: 20px 30px;
     left: 3.5vw;
     text-align: center;
+    margin-top: -0.4%;
     
+   
   }
   .pic{
     left: 3vw;
@@ -39,6 +41,8 @@
     position: relative;
     display: flex;
     flex-flow: column wrap;
+    margin-left: -6%;
+    margin-top: -4%;
     }
     .mat-typography p{
       font-size: 20px;
@@ -68,6 +72,8 @@
   box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
   text-align: center;
   padding: 20px;
+  width: 70%;
+
 
 
 }

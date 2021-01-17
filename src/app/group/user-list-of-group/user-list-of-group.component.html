@@ -16,9 +16,31 @@
         <div><button (click)="RouteToAddUser()"><mat-icon>person_add_alt_1</mat-icon>Add User</button></div>
         </div>
 </div> -->
-<div>
-    <!-- <input formControlName = "search" (keyup) = "search($event.target.value)" /> -->
-    <table mat-table [dataSource]="users" class="mat-elevation-z8">
+
+
+<mat-card>
+    <mat-card-content>
+        
+        <button (click)="RouteToAddUser()">
+            <mat-icon>person_add_alt_1</mat-icon>
+        </button>
+        <div *ngFor="let user of users" class="card">
+            <img [src]="user.Image" *ngIf="user.Image">
+            <span class="circle-name" *ngIf="!user.Image">
+                {{FirstLetter(user.UserName)}}
+            </span>
+            <p class="userName">{{user.FirstName}} {{user.LastName}}</p>
+            <button class="clear" (click)="DeleteUserFromGroup(user.Id)">
+                <mat-icon class="clear-icon">clear</mat-icon>
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+
+<!-- <div class="table">
+    <input formControlName = "search" (keyup) = "search($event.target.value)" />
+    <table mat-table [dataSource]="users"  class="mat-elevation-z8">
         <ng-container matColumnDef="Name">
             <td mat-cell *matCellDef="let user">
                 <img [src]="user.Image" *ngIf="user.Image">
@@ -31,11 +53,9 @@
                 </button>
             </td>
         </ng-container>
-
-
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     <div><button (click)="RouteToAddUser()">
-            <mat-icon>person_add_alt_1</mat-icon>Add User
+            <mat-icon>person_add_alt_1</mat-icon>
         </button></div>
-</div>
+</div> -->

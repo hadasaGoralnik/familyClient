@@ -31,6 +31,7 @@ import { MenuDetailsDailogComponent } from './menu/menu-details-dailog/menu-deta
 import { HeaderComponent } from './header/header.component';
 import { CreateUserModalComponent } from './user/create-user-modal/create-user-modal.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import { CreateUserModalComponent } from './user/create-user-modal/create-user-m
        MenuDetailsDailogComponent,
        HeaderComponent,
        CreateUserModalComponent,
+       
   ],
   imports: [
     DemoModule,

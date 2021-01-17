@@ -1,5 +1,5 @@
 
-
+<div class="background" [style.backgroundImage]="'url('+ currentGroup.Image +')'">
   <form [formGroup]="addChatMessageForm" (submit)="AddMessage()" class="form">
  <div class="col-sm-3 col-sm-offset-4 frame">
   <ul>
@@ -44,3 +44,4 @@
 </div>     
 </form>  
 
+</div>

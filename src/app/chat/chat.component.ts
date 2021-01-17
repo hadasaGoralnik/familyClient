@@ -72,7 +72,11 @@ AddMessage()
     this.Body.setValue("")
 })
 }
-
+function() {
+  document.ontouchmove = function(e){
+       e.preventDefault();
+       }
+}
 GetMessages(){
   this.chatService.GetMessages(this.currentGroup.Id).subscribe(messages=>{
     
