@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/DTO/MODELS/user.model';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -52,12 +53,11 @@ export class UpdateUserComponent implements OnInit {
   save(){
     this.userService.UpdateUser(this.myForm.value)
     .subscribe(x=>{
-      console.log(x);
-    },
-    (err) => {
-
-      alert('The update failed, Username already exists');
-    })
-
-  }
+      if (x) {
+        Swal.fire('Success', 'the user was saved sucessfully', 'success')
+      }
+    }, (err => {
+      Swal.fire('Opss...', '):Something went Worng', 'error');
+    }));
+}
 }
