@@ -268,7 +268,6 @@ export class EventDetailsComponent implements OnInit {
         else
           Swal.fire('Worng', 'you have no access permission', 'warning');
       }
-    }
-    );
+    });
   }
 }

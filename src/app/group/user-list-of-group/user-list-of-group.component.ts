@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { th } from 'date-fns/locale';
 import { User } from 'src/app/DTO/MODELS/user.model';
 import { GroupService } from 'src/app/services/group.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-user-list-of-group',
   templateUrl: './user-list-of-group.component.html',
@@ -33,13 +34,29 @@ export class UserListOfGroupComponent implements OnInit {
   //     this.users = this.users.filter(u => )
   // }
    DeleteUserFromGroup(UserId:number){
-     console.log("DeleteUserFromGroup")
+    Swal.fire({
+      html: 'Are you sure that you want to delete?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value){
      if(this.groupService.currentGroup){
       this.groupService.DeleteUserFromGroup({GroupId:this.groupService.currentGroup.Id,UserId:UserId}).subscribe(group=>{
-        this.ngOnInit()
-      },err=>  this.router.navigate(['/group-list/']))
+        if (group) {
+          Swal.fire('Success', 'the user was deleted sucessfully', 'success')
+          this.ngOnInit()
+        }
+      }, (err => {
+        Swal.fire('Opss...', '):Something went Worng', 'error');
+        this.router.navigate(['/group-list/'])
+      }));
     }
-  }
+      
+    }
+  });
+}
   
   RouteToAddUser(){
     this.router.navigate(['/add-user/'])

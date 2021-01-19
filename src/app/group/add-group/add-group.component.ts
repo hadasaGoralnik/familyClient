@@ -5,6 +5,7 @@ import { User } from 'src/app/DTO/MODELS/user.model';
 import { Router } from '@angular/router';
 import { GroupService } from 'src/app/services/group.service';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-group',
@@ -46,8 +47,12 @@ export class AddGroupComponent implements OnInit {
 AddGroup()
 { this.groupService.AddGroup(this.addGroupForm.value)
   .subscribe(x=>{
-    console.log(x);
-    alert("The group created successfully")
-    this.router.navigate(['/group-list/'])
-  })}
+    if (x) {
+      Swal.fire('Success', 'the group was saved sucessfully', 'success')
+      this.router.navigate(['/group-list/'])
+    }
+  }, (err => {
+    Swal.fire('Opss...', '):Something went Worng', 'error');
+  }));
+  }
 }
