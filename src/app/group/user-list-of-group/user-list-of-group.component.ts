@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { th } from 'date-fns/locale';
+import { Group } from 'src/app/DTO/MODELS/group';
 import { User } from 'src/app/DTO/MODELS/user.model';
 import { GroupService } from 'src/app/services/group.service';
 import Swal from 'sweetalert2';
@@ -13,13 +14,13 @@ import Swal from 'sweetalert2';
 
 export class UserListOfGroupComponent implements OnInit {
   users:Array<User>
-  
-  constructor(private groupService:GroupService,private router:Router) { 
+  currentGroup:Group;
+  constructor(private groupService:GroupService,private router:Router ) { 
 
   }
 
   ngOnInit(): void {
-   
+   this.currentGroup=this.groupService.currentGroup;
     this.GetUsers()
   }
   GetUsers(){

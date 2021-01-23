@@ -11,15 +11,10 @@
           </div>
           <img [src]="currentUser.Image" class="circle-image" *ngIf="currentUser.Image" (click)="displayUser()"matTooltip="displayUser">
         </div>
-
-
-
         <div id="user-name" class="bold small-font">
           Hi
           {{currentUser.UserName}}!
         </div>
-
-
 
       </div>
       <app-display-user *ngIf="display"></app-display-user>

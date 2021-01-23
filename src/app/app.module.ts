@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './user/login/login.component';
-import { HelpComponent } from './help/help.component';
 import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, Validator } from '@angular/forms';
@@ -28,7 +27,6 @@ import { NgxGalleryModule } from 'ngx-gallery-9';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CreateMenuModalComponent } from './menu/create-menu-modal/create-menu-modal.component';
 import { MenuDetailsDailogComponent } from './menu/menu-details-dailog/menu-details-dailog.component';
-import { HeaderComponent } from './header/header.component';
 import { CreateUserModalComponent } from './user/create-user-modal/create-user-modal.component';
 
 
@@ -36,7 +34,6 @@ import { CreateUserModalComponent } from './user/create-user-modal/create-user-m
   declarations: [
     AppComponent,
     LoginComponent,
-    HelpComponent,
     SighUpComponent,
     EventsComponent,
     NavbarComponent,
@@ -53,7 +50,6 @@ import { CreateUserModalComponent } from './user/create-user-modal/create-user-m
        CreateEventModalComponent,
        CreateMenuModalComponent,
        MenuDetailsDailogComponent,
-       HeaderComponent,
        CreateUserModalComponent,
        
   ],

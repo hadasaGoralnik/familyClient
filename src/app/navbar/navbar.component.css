@@ -91,17 +91,6 @@
   top: 13px;
 }
 
-/* .profile-img {
-  width: 30px;
-  height: 30px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 50%;
-  border: 1px solid purple;
-  margin-left: 4px;
-} */
-
 .small-font {
   font-size: 14px;
 }
@@ -109,6 +98,7 @@ button:not(:disabled) {
   cursor: pointer;
   border: none;
   background-color: transparent;}
+  
 .h1{
   margin-left: 40%;
   margin-right: 20%;
@@ -117,3 +107,10 @@ button:not(:disabled) {
   .mat-toolbar {
     background: #d2e6e7;}
   .mat-drawer { background-color: #fafafa;}
+ 
+  .ng-tns-c219-0{
+    overflow: hidden !important;
+  }
+  .mat-focus-indicator{
+    text-align: left;
+  }

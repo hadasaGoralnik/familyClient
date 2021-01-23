@@ -70,6 +70,8 @@ img{
     text-align: center;
     padding: 20px;
     height: 100%;
+    background-color: #fff0;
+    border: none;
 }
 mat-card {
   max-width: 395px;
@@ -80,6 +82,7 @@ mat-card {
     overflow-y: auto;
     position: relative;
     height: 100%;
+    background-color: #ffffff8f;
   }
   .mat-typography p{
     font-size: 20px;
@@ -108,3 +111,9 @@ mat-card {
    .chip-svg:hover{
       color: #666666;
    }
+   .background{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 450px;}
