@@ -3,6 +3,7 @@ import{FormBuilder}from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sigh-up',
@@ -49,14 +50,15 @@ export class SighUpComponent implements OnInit {
   save(){
     this.userService.SignUp(this.myForm.value)
     .subscribe(x=>{
-      console.log(x);
+      
+      if (x) {
+        Swal.fire('Success', 'the user was saved sucessfully', 'success')
+      }
       this.router.navigate(['/login/']);
     },
-    (err) => {
-
-      alert('The sigh-up failed, Username already exists');
-    })
-
+      (err => {
+        Swal.fire('Opss...', '):The sigh-up failed, Username already exists', 'error');
+      }));
   }
   get UserName() { return this.myForm.get('UserName'); }
   get Password() { return this.myForm.get('Password'); }

@@ -27,7 +27,7 @@ import { NgxGalleryModule } from 'ngx-gallery-9';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CreateMenuModalComponent } from './menu/create-menu-modal/create-menu-modal.component';
 import { MenuDetailsDailogComponent } from './menu/menu-details-dailog/menu-details-dailog.component';
-import { CreateUserModalComponent } from './user/create-user-modal/create-user-modal.component';
+
 
 
 @NgModule({
@@ -50,7 +50,7 @@ import { CreateUserModalComponent } from './user/create-user-modal/create-user-m
        CreateEventModalComponent,
        CreateMenuModalComponent,
        MenuDetailsDailogComponent,
-       CreateUserModalComponent,
+      
        
   ],
   imports: [
