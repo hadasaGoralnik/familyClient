@@ -58,5 +58,6 @@ export class SighUpComponent implements OnInit {
     })
 
   }
-  
+  get UserName() { return this.myForm.get('UserName'); }
+  get Password() { return this.myForm.get('Password'); }
 }

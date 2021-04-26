@@ -104,19 +104,17 @@ input:focus{
 
 .circle-name {
  
-    /* display: inline-block; */
+    
     font-size: 14px;
-    /* width: 2.3em;
-    height: 2.3em; */
     line-height: 21px;
     text-align: center;
     border-radius: 50%;
     background: #e6a398;
     vertical-align: middle;
-    margin-right: 10px;
-    padding: 6px;
+    margin-right: 25px;
+    padding: 11px;
     color: white;
-    /* display: inline-block;*/
+
   }
   .img{
     width: 3em !important;

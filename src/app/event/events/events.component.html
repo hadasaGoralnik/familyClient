@@ -5,9 +5,11 @@
             <mat-icon (click)="openModal();">add_circle</mat-icon>
         </button>
         <div *ngFor="let event of events" class="card">
+            <p>{{event.Title}}</p>
             <p>{{event.Address}}-{{event.City}}</p>
             <p>{{event.Date|date:'shortDate'}}</p>
             <p>{{event.Date|date:'shortTime'}}</p>
+            
             <button  mat-raised-button class="btn-deafult" routerLink="/event/{{event.Id}}">Details</button>
         </div>
       
