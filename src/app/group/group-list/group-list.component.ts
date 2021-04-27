@@ -26,6 +26,7 @@ export class GroupListComponent implements OnInit {
   }
 
   GetGroups() {
+    this.groupService.currentGroup = undefined;
     this.groupService.GetGroups({ UserId: this.currentUser.Id }).subscribe(groups => {
       this.groups = groups
       console.log(this.groups)

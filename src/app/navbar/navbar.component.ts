@@ -17,10 +17,11 @@ export class NavbarComponent implements OnInit {
 
   constructor(private breakpointObserver: BreakpointObserver,
     private router: Router,
-    private userService: UserService,
+    public userService: UserService,
     private groupService: GroupService) { }
   currentPage: any;
   display: boolean = false
+  
   pages = [
     {
       route: '/login',
@@ -111,7 +112,9 @@ export class NavbarComponent implements OnInit {
         this.userLoggedIn = login.isLoggedIn
       })
     this.subsribeToUrlNavigation();
-
+    this.userService.userUpdatedSubject.subscribe(user=>{
+      this.currentUser=user
+    })  
   }
   displayUser() {
     this.display = !this.display

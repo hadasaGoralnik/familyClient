@@ -18,6 +18,7 @@ export class UserService {
     user: User;
   }>()
  isLogedIn:boolean=false
+ userUpdatedSubject:Subject<any>=new Subject<any>()
 
   constructor( public http:HttpClient) { 
   }

@@ -16,6 +16,9 @@ export class DisplayUserComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
   ngOnInit(): void {
     this.currentUser = this.userService.currentUser
+    this.userService.userUpdatedSubject.subscribe(user=>{
+      this.currentUser=user
+    }) 
   }
   FirstLetter(userId: string): string {
     var name = userId.toUpperCase()

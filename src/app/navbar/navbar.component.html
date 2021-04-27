@@ -17,7 +17,7 @@
         </div>
 
       </div>
-      <app-display-user *ngIf="display"></app-display-user>
+      <app-display-user *ngIf="display && userService.isLogedIn"></app-display-user>
       <div class="btn-nav-wrapper">
         <ng-container *ngFor="let page of pages">
           <button *ngIf="
