@@ -13,7 +13,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   myForm: FormGroup;
   constructor(private userService: UserService, private fb: FormBuilder, private router: Router) { }
 
