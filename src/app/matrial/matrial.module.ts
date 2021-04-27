@@ -13,7 +13,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({

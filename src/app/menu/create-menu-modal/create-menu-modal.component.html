@@ -2,12 +2,12 @@
     <h1 *ngIf="!menuId; else newMenu">Create Menu</h1>
     <ng-template #newMenu>
         <h1>Update Menu</h1>
-   </ng-template>
+    </ng-template>
     <mat-form-field class="full-width-input">
         <mat-select placeholder="MenuOrder" formControlName="MenuOrderNumber" class="full-width-input" required>
-          <mat-option *ngFor="let item of ArrMenu" [value]="item.id">
-            {{item.name}}
-          </mat-option>
+            <mat-option *ngFor="let item of ArrMenu" [value]="item.id">
+                {{item.name}}
+            </mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field class="full-width-input">

@@ -72,7 +72,7 @@ export class CreateEventModalComponent implements OnInit {
           if (x) {
             Swal.fire('Success', 'the event was saved sucessfully', 'success')
           }
-        },(err => {
+        }, (err => {
           Swal.fire('Opss...', '):Something went Worng', 'error');
         }));
       else

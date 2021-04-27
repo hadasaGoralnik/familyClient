@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     private groupService: GroupService) { }
   currentPage: any;
   display: boolean = false
-  
+
   pages = [
     {
       route: '/login',
@@ -92,7 +92,7 @@ export class NavbarComponent implements OnInit {
       title: 'Chat',
       icon: 'group',
       viewMenuTab: false
-      
+
     },
   ];
   currentGroup: Group;
@@ -112,16 +112,16 @@ export class NavbarComponent implements OnInit {
         this.userLoggedIn = login.isLoggedIn
       })
     this.subsribeToUrlNavigation();
-    this.userService.userUpdatedSubject.subscribe(user=>{
-      this.currentUser=user
-    })  
+    this.userService.userUpdatedSubject.subscribe(user => {
+      this.currentUser = user
+    })
   }
   displayUser() {
     this.display = !this.display
   }
   subsribeToUrlNavigation() {
     this.router.events.subscribe((data: any) => {
-   
+
       if (!data.url || data.url === '' || data.url === '/') return;
 
       const currentPage = this.pages.find((page) =>
@@ -153,21 +153,21 @@ export class NavbarComponent implements OnInit {
     this.groupService.LogoutGroup();
   }
 
-  g(): boolean{
-    this.currentGroup=this.groupService.currentGroup;
+  g(): boolean {
+    this.currentGroup = this.groupService.currentGroup;
     return this.groupService.currentGroup !== undefined;
   }
 
   displayCalander() {
     this.router.navigate(['/calander/']);
   }
-  displaychat(){
+  displaychat() {
     this.router.navigate(['/chat/']);
   }
-  displayUserListOfGroup(){
+  displayUserListOfGroup() {
     this.router.navigate(['/UserListOfGroup/']);
   }
-  displayEvents(){
+  displayEvents() {
     this.router.navigate(['/events/']);
   }
   Unsubscribe() {

@@ -13,16 +13,16 @@ import Swal from 'sweetalert2';
   styleUrls: ['./add-group.component.css']
 })
 export class AddGroupComponent implements OnInit {
-  addGroupForm:FormGroup
-  currentUser:User
-  url:string
-  constructor(private groupService:GroupService,private fb:FormBuilder,private userService:UserService,private router:Router) { }
+  addGroupForm: FormGroup
+  currentUser: User
+  url: string
+  constructor(private groupService: GroupService, private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.currentUser=this.userService.currentUser
-    this.addGroupForm=this.fb.group({
-      Name: ["",[Validators.required]],
-      UserId:[this.currentUser.Id,[Validators.required]],
+    this.currentUser = this.userService.currentUser
+    this.addGroupForm = this.fb.group({
+      Name: ["", [Validators.required]],
+      UserId: [this.currentUser.Id, [Validators.required]],
       Image: [""],
     })
   }
@@ -44,15 +44,15 @@ export class AddGroupComponent implements OnInit {
       }
     }
   }
-AddGroup()
-{ this.groupService.AddGroup(this.addGroupForm.value)
-  .subscribe(x=>{
-    if (x) {
-      Swal.fire('Success', 'the group was saved sucessfully', 'success')
-      this.router.navigate(['/group-list/'])
-    }
-  }, (err => {
-    Swal.fire('Opss...', '):Something went Worng', 'error');
-  }));
+  AddGroup() {
+    this.groupService.AddGroup(this.addGroupForm.value)
+    .subscribe(x => {
+      if (x) {
+        Swal.fire('Success', 'the group was saved sucessfully', 'success')
+        this.router.navigate(['/group-list/'])
+      }
+    }, (err => {
+      Swal.fire('Opss...', '):Something went Worng', 'error');
+    }));
   }
 }

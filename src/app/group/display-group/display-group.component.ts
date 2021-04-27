@@ -1,4 +1,4 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Group } from 'src/app/DTO/MODELS/group';
 import { User } from 'src/app/DTO/MODELS/user.model';
@@ -14,17 +14,17 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DisplayGroupComponent implements OnInit {
 
-  currentGroup:Group
-  groupSubject:Subject<Group>=new Subject<Group>()
+  currentGroup: Group
+  groupSubject: Subject<Group> = new Subject<Group>()
 
-  constructor(private groupService:GroupService,private userService:UserService,private eventsService:EventsService) {
+  constructor(private groupService: GroupService, private userService: UserService, private eventsService: EventsService) {
 
   }
-  
+
   ngOnInit(): void {
-    this.currentGroup=this.groupService.currentGroup
+    this.currentGroup = this.groupService.currentGroup
     this.groupSubject.next(this.currentGroup)
-    
+
   }
- 
+
 }

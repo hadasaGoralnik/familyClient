@@ -14,23 +14,23 @@ import Swal from 'sweetalert2';
 export class UpdateUserComponent implements OnInit {
   url: string;
   myForm: FormGroup;
-  currentUser:User;
-  constructor(private fb:FormBuilder,private userService:UserService, private router: Router) { }
+  currentUser: User;
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.currentUser=this.userService.currentUser
-    this.myForm=this.fb.group({
-      Id:[this.currentUser.Id,[Validators.required]],
-      UserName: [this.currentUser.UserName,[Validators.required]],
-      Birthday: [this.currentUser.Birthday?this.currentUser.Birthday :""],
-      MarryDate: [this.currentUser.MarryDate?this.currentUser.MarryDate:""],
-      Mail: [this.currentUser.Mail,[Validators.required,Validators.email]],
-      FirstName: [this.currentUser.FirstName,[Validators.required]],
-      LastName: [this.currentUser.LastName,[Validators.required]],
-      Address: [this.currentUser.Address?this.currentUser.Address:""],
-      IsMale: [this.currentUser.IsMale,[Validators.required]],
-      Image: [this.currentUser.Image?this.currentUser.Image:""],
-      Password: [this.currentUser.Password,[Validators.required]], 
+    this.currentUser = this.userService.currentUser
+    this.myForm = this.fb.group({
+      Id: [this.currentUser.Id, [Validators.required]],
+      UserName: [this.currentUser.UserName, [Validators.required]],
+      Birthday: [this.currentUser.Birthday ? this.currentUser.Birthday : ""],
+      MarryDate: [this.currentUser.MarryDate ? this.currentUser.MarryDate : ""],
+      Mail: [this.currentUser.Mail, [Validators.required, Validators.email]],
+      FirstName: [this.currentUser.FirstName, [Validators.required]],
+      LastName: [this.currentUser.LastName, [Validators.required]],
+      Address: [this.currentUser.Address ? this.currentUser.Address : ""],
+      IsMale: [this.currentUser.IsMale, [Validators.required]],
+      Image: [this.currentUser.Image ? this.currentUser.Image : ""],
+      Password: [this.currentUser.Password, [Validators.required]],
     })
   }
   onSelectFile(event) {
@@ -51,17 +51,17 @@ export class UpdateUserComponent implements OnInit {
       }
     }
   }
-  save(){
+  save() {
     this.userService.UpdateUser(this.myForm.value)
-    .subscribe(x=>{
-      if (x) {
-        this.userService.currentUser=x;
-        this.userService.userUpdatedSubject.next(x)
-        Swal.fire('Success', 'the user was saved sucessfully', 'success')
-      }
-      this.router.navigate(['/group-list/']);
-    }, (err => {
-      Swal.fire('Opss...', '):Something went Worng', 'error');
-    }));
-}
+      .subscribe(x => {
+        if (x) {
+          this.userService.currentUser = x;
+          this.userService.userUpdatedSubject.next(x)
+          Swal.fire('Success', 'the user was saved sucessfully', 'success')
+        }
+        this.router.navigate(['/group-list/']);
+      }, (err => {
+        Swal.fire('Opss...', '):Something went Worng', 'error');
+      }));
+  }
 }

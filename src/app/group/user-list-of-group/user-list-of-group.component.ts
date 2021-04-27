@@ -13,28 +13,26 @@ import Swal from 'sweetalert2';
 })
 
 export class UserListOfGroupComponent implements OnInit {
-  users:Array<User>
-  currentGroup:Group;
-  constructor(private groupService:GroupService,private router:Router ) { 
+  users: Array<User>
+  currentGroup: Group;
+  constructor(private groupService: GroupService, private router: Router) {
 
   }
 
   ngOnInit(): void {
-   this.currentGroup=this.groupService.currentGroup;
+    this.currentGroup = this.groupService.currentGroup;
     this.GetUsers()
   }
-  GetUsers(){
-    if(this.groupService.currentGroup){
-    this.groupService.GetUsers(this.groupService.currentGroup.Id).subscribe(users=>{
-      this.users=users
+  GetUsers() {
+    if (this.groupService.currentGroup) {
+      this.groupService.GetUsers(this.groupService.currentGroup.Id).subscribe(users => {
+        this.users = users
+      }
+      )
     }
-  )
-    }}
-    
-  // search(s: string){
-  //     this.users = this.users.filter(u => )
-  // }
-   DeleteUserFromGroup(UserId:number){
+  }
+
+  DeleteUserFromGroup(UserId: number) {
     Swal.fire({
       html: 'Are you sure that you want to delete?',
       icon: 'question',
@@ -42,28 +40,28 @@ export class UserListOfGroupComponent implements OnInit {
       confirmButtonText: 'Yes',
       cancelButtonText: 'No'
     }).then((result) => {
-      if (result.value){
-     if(this.groupService.currentGroup){
-      this.groupService.DeleteUserFromGroup({GroupId:this.groupService.currentGroup.Id,UserId:UserId}).subscribe(group=>{
-        if (group) {
-          Swal.fire('Success', 'the user was deleted sucessfully', 'success')
-          this.ngOnInit()
+      if (result.value) {
+        if (this.groupService.currentGroup) {
+          this.groupService.DeleteUserFromGroup({ GroupId: this.groupService.currentGroup.Id, UserId: UserId }).subscribe(group => {
+            if (group) {
+              Swal.fire('Success', 'the user was deleted sucessfully', 'success')
+              this.ngOnInit()
+            }
+          }, (err => {
+            Swal.fire('Opss...', '):Something went Worng', 'error');
+            this.router.navigate(['/group-list/'])
+          }));
         }
-      }, (err => {
-        Swal.fire('Opss...', '):Something went Worng', 'error');
-        this.router.navigate(['/group-list/'])
-      }));
-    }
-      
-    }
-  });
-}
-  
-  RouteToAddUser(){
+
+      }
+    });
+  }
+
+  RouteToAddUser() {
     this.router.navigate(['/add-user/'])
   }
-  FirstLetter(userId:string):string{
-    var name=userId.toUpperCase()
-    return name.substring(0,2)
+  FirstLetter(userId: string): string {
+    var name = userId.toUpperCase()
+    return name.substring(0, 2)
   }
 }

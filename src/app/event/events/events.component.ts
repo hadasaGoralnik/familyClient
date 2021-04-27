@@ -14,25 +14,25 @@ import { Group } from 'src/app/DTO/MODELS/group';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  groupId:number;
+  groupId: number;
   events: Events[] = [];
-  event:Events[]=[];
-  eventId:number;
-  event1:Events;
-  currentUser:User;
-  currentGroup:Group;
-  constructor(private eventService: EventsService,public dialog: MatDialog,private GroupService:GroupService,private UserService:UserService) { }
+  event: Events[] = [];
+  eventId: number;
+  event1: Events;
+  currentUser: User;
+  currentGroup: Group;
+  constructor(private eventService: EventsService, public dialog: MatDialog, private GroupService: GroupService, private UserService: UserService) { }
 
   ngOnInit(): void {
-    this.groupId=this.GroupService.currentGroup.Id;
-    this.currentUser=this.UserService.getCurrentUser();
-    this.currentGroup=this.GroupService.currentGroup;
+    this.groupId = this.GroupService.currentGroup.Id;
+    this.currentUser = this.UserService.getCurrentUser();
+    this.currentGroup = this.GroupService.currentGroup;
     this.get();
   }
-  get(){
+  get() {
     this.eventService.getEvents(this.groupId).subscribe(events => {
       this.event = events;
-      this.events=this.event.reverse();
+      this.events = this.event.reverse();
     });
   }
   openModal() {

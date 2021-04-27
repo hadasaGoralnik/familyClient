@@ -1,22 +1,16 @@
 <mat-card>
-    <mat-card-content>
- 
-     <h2>{{currentUser.FirstName}} {{currentUser.LastName}}</h2>
-     <div> {{currentUser.Mail}}</div>
-     <div *ngIf="currentUser.Birthday.toString()!=defultDate">Birthday: {{currentUser.Birthday|date}}</div>
-     <div *ngIf="currentUser.MarryDate.toString()!=defultDate">MarryDate: {{currentUser.MarryDate|date}}</div>
-     <br>
-     <a routerLink="/update-user"><button class="btn btn-outline-dark" ><mat-icon>edit</mat-icon> Edit</button></a>
-    <a><button class="btn btn-outline-dark" (click)="Unsubscribe()" ><mat-icon>person_remove</mat-icon> Unsubscribe</button></a>
-    </mat-card-content>
-  </mat-card>
- 
- 
-  
- 
+  <mat-card-content>
 
- 
-
- 
- 
- 
+    <h2>{{currentUser.FirstName}} {{currentUser.LastName}}</h2>
+    <div> {{currentUser.Mail}}</div>
+    <div *ngIf="currentUser.Birthday.toString()!=defultDate">Birthday: {{currentUser.Birthday|date}}</div>
+    <div *ngIf="currentUser.MarryDate.toString()!=defultDate">MarryDate: {{currentUser.MarryDate|date}}</div>
+    <br>
+    <a routerLink="/update-user"><button class="btn btn-outline-dark">
+        <mat-icon>edit</mat-icon> Edit
+      </button></a>
+    <a><button class="btn btn-outline-dark" (click)="Unsubscribe()">
+        <mat-icon>person_remove</mat-icon> Unsubscribe
+      </button></a>
+  </mat-card-content>
+</mat-card>

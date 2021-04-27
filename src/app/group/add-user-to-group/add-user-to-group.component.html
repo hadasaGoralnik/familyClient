@@ -1,31 +1,30 @@
 <mat-card>
-    <mat-card-content>
-      <form [formGroup]="myForm" (submit)="AddUserToGroup()">
-        <h2>Add user to group: {{currentGroup.Name}}</h2>
-        <mat-form-field class="full-width-input">
-          <input matInput placeholder="UserName" formControlName="UserName" >
-        </mat-form-field>
-        <mat-form-field class="full-width-input">
-          <input matInput type="password" placeholder="Password" formControlName="Password">
-        </mat-form-field>
-      
-        <mat-form-field class="full-width-input">
-          <input matInput  placeholder="FirstName" formControlName="FirstName" >
-        </mat-form-field>
-        <mat-form-field class="full-width-input">
-          <input matInput  placeholder="LastName"formControlName="LastName">
-        </mat-form-field>
-        <mat-form-field class="full-width-input">
-          <input matInput  placeholder="Mail"formControlName="Mail">
-        </mat-form-field>
-        <mat-radio-group formControlName="IsMale">
-          <mat-label>Gender:</mat-label>&nbsp;
-          <mat-radio-button color="primary" value="male">Male</mat-radio-button
-          >&nbsp;
-          <mat-radio-button color="primary" value="female">Female</mat-radio-button>
-        </mat-radio-group>
-       <br>
-        <button mat-raised-button  type="submit">Add</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
+  <mat-card-content>
+    <form [formGroup]="myForm" (submit)="AddUserToGroup()">
+      <h2>Add user to group: {{currentGroup.Name}}</h2>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="UserName" formControlName="UserName">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Password" formControlName="Password">
+      </mat-form-field>
+
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="FirstName" formControlName="FirstName">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="LastName" formControlName="LastName">
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Mail" formControlName="Mail">
+      </mat-form-field>
+      <mat-radio-group formControlName="IsMale">
+        <mat-label>Gender:</mat-label>&nbsp;
+        <mat-radio-button color="primary" value="male">Male</mat-radio-button>&nbsp;
+        <mat-radio-button color="primary" value="female">Female</mat-radio-button>
+      </mat-radio-group>
+      <br>
+      <button mat-raised-button type="submit">Add</button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{FormBuilder}from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
@@ -13,20 +13,20 @@ import Swal from 'sweetalert2';
 export class SighUpComponent implements OnInit {
   url: string;
   myForm: FormGroup;
-  constructor(private fb:FormBuilder,private userService:UserService,private router:Router) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.myForm=this.fb.group({
-      UserName: ["",[Validators.required]],
+    this.myForm = this.fb.group({
+      UserName: ["", [Validators.required]],
       Birthday: [""],
       MarryDate: [""],
-      Mail: ["",[Validators.required,Validators.email]],
-      FirstName: ["",[Validators.required]],
-      LastName: ["",[Validators.required]],
+      Mail: ["", [Validators.required, Validators.email]],
+      FirstName: ["", [Validators.required]],
+      LastName: ["", [Validators.required]],
       Address: [""],
-      IsMale: ["",[Validators.required]],
+      IsMale: ["", [Validators.required]],
       Image: [""],
-      Password: ["",[Validators.required]], 
+      Password: ["", [Validators.required]],
     })
   }
   onSelectFile(event) {
@@ -47,18 +47,18 @@ export class SighUpComponent implements OnInit {
       }
     }
   }
-  save(){
+  save() {
     this.userService.SignUp(this.myForm.value)
-    .subscribe(x=>{
-      
-      if (x) {
-        Swal.fire('Success', 'the user was saved sucessfully', 'success')
-      }
-      this.router.navigate(['/login/']);
-    },
-      (err => {
-        Swal.fire('Opss...', '):The sigh-up failed, Username already exists', 'error');
-      }));
+      .subscribe(x => {
+
+        if (x) {
+          Swal.fire('Success', 'the user was saved sucessfully', 'success')
+        }
+        this.router.navigate(['/login/']);
+      },
+        (err => {
+          Swal.fire('Opss...', '):The sigh-up failed, Username already exists', 'error');
+        }));
   }
   get UserName() { return this.myForm.get('UserName'); }
   get Password() { return this.myForm.get('Password'); }

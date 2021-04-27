@@ -45,7 +45,7 @@ export class GroupListComponent implements OnInit {
       confirmButtonText: 'Yes',
       cancelButtonText: 'No'
     }).then((result) => {
-      if (result.value){
+      if (result.value) {
         this.groupService.DeleteGroup({ GroupId: groupId }).subscribe(group => {
           var index = this.groups.findIndex(group => group.Id == groupId)
           this.groups.splice(index, 1)
@@ -55,13 +55,13 @@ export class GroupListComponent implements OnInit {
         }, (err => {
           Swal.fire('Opss...', '):Something went Worng', 'error');
         }));
-    }
-  });
-}
-  routeToDisplatGroup(group: Group){
-      this.groupService.currentGroup = group
-    
+      }
+    });
+  }
+  routeToDisplatGroup(group: Group) {
+    this.groupService.currentGroup = group
+
     this.router.navigate(['/display-group/']);
-    }
+  }
 }
 
